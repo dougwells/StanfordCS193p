@@ -83,6 +83,81 @@
  
  Classes
  @IBOutlet weak var display UILabel! (instead of ?)
+ 
+ Operators
+ Compound assignment operators.  Combine assignment (=) with another operation. One example is the addition assignment operator (+=)
+ The expression a += 2 is shorthand for a = a + 2.
+ Other compound operations
+	// compound operations
+ var any = 2
+ any += 3
+ any -= 1
+ any *= 5
+ 
+ 
+ Unary, binary & tertiary operators
+ Ternary.  A special operator with three parts, which takes the form question ? answer1 : answer2. It is a shortcut for:
+ if question {
+ answer1
+ } else {
+ answer2
+ }
+ 
+ let contentHeight = 40
+ let hasHeader = true
+ let rowHeight = contentHeight + (hasHeader ? 50 : 20)
+ // rowHeight is equal to 90
+ 
+ nil-coalescing operator: ??
+ (a ?? b) unwraps an optional a if it contains a value, or returns a default value b if a is nil. Shorthand for the code below:
+ a != nil ? a! : b
+ 
+ let defaultColorName = "red"
+ var userDefinedColorName: String?   // defaults to nil
+ 
+ var colorNameToUse = userDefinedColorName ?? defaultColorName
+ // userDefinedColorName is nil, so colorNameToUse is set to the default of "red"
+ 
+ Range Operator
+ for index in 1...5 {
+ print("\(index) times 5 is \(index * 5)")
+ }
+ 
+ 
+ Half-open range operator
+ let names = ["Anna", "Alex", "Brian", "Jack"]
+ let count = names.count
+ for i in 0..<count {
+ print("Person \(i + 1) is called \(names[i])")
+ }
+ 
+ Unary & Binary operators
+ 
+ var score = 10
+ 
+ //unary operator (needs just 1 param)
+ ‘-’
+ var myScore = -score
+ ‘!’  aka ‘not’ operator
+	if !allowedAccess { print(“You cannot enter”) }
+ 
+ //binary operator (needs 2 params)
+ let (a,b) = (9,2)
+ a+b
+ a/b
+ a%b
+ a*b
+ 
+ // compound operations
+ var any = 2
+ any += 3
+ any -= 1
+ any *= 5
+ 
+ Range
+ inclusive range:	1...6		(1,2,3,4,5,6)
+ non-inclusive:		1..<6		(1,2,3,4,5)
+
 
  
 */
