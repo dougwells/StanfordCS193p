@@ -158,6 +158,62 @@
  inclusive range:	1...6		(1,2,3,4,5,6)
  non-inclusive:		1..<6		(1,2,3,4,5)
 
+ 
+ Strings
+ myString = “Hello”
+ Creating an empty string
+ newString = “”
+ newString: String
+ newString = String()
+ Checking for an empty string
+ newString.isEmpty	→ boolean
+ Iterating over characters in a string
+ var longWord = "Hello"
+ for char in longWord.characters {
+ print(char)
+ }
+ Concatenation.
+ var phrase = firstWord + " World"
+ var phrase2 = String(firstWord) + “ Word”)
+ var phrase 3 = “\(firstWord) Word”
+ var age = 52
+ print(phrase, "I am \(age) years old")
+ 
+ 
+ methods on strings
+ .append(“III”)
+ .capitalized
+ .isEmpty
+ .contains(“heck”)
+ .replacingOccurences(of: “heck”, with: “hell”)
+ 
+ 
+ Working with Characters
+ access the individual Character by iterating over its characters property with a for-in loop:
+ 
+ for character in "Dog!🐶".characters {
+ print(character)
+ }
+ // D
+ // o
+ // g
+ // !
+ // 🐶
+ 
+ 
+ string.characters.count
+ use count property of the string’s characters property:
+ 
+ let unusualMenagerie = "Koala 🐨, Snail 🐌, Penguin 🐧, Dromedary 🐪"
+ print("unusualMenagerie has \(unusualMenagerie.characters.count) characters")
+ // Prints "unusualMenagerie has 40 characters"
+ 
+ 
+ Index.  different characters require different amounts of memory to store, For this reason, Swift strings cannot be indexed by integer values.
+ 
+ 
+ Contains.
+ To check whether a string has a particular string prefix or suffix, call the string’s hasPrefix(_:) and hasSuffix(_:) methods, both of which take a single argument of type String and return a Boolean value.
 
  
 */
