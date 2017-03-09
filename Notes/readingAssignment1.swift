@@ -214,6 +214,8 @@
  
  Contains.
  To check whether a string has a particular string prefix or suffix, call the string’s hasPrefix(_:) and hasSuffix(_:) methods, both of which take a single argument of type String and return a Boolean value.
+ 
+ 
 
  
 */
