@@ -13,6 +13,7 @@
 		705E41051E748462002B7626 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 705E41041E748462002B7626 /* Assets.xcassets */; };
 		705E41081E748462002B7626 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 705E41061E748462002B7626 /* LaunchScreen.storyboard */; };
 		705E41111E74CCB7002B7626 /* CalculatorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 705E41101E74CCB7002B7626 /* CalculatorModel.swift */; };
+		705E41131E75F973002B7626 /* readingAssignment1 - Classes Structures and Computed Properties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 705E41121E75F973002B7626 /* readingAssignment1 - Classes Structures and Computed Properties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		705E41071E748462002B7626 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		705E41091E748462002B7626 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		705E41101E74CCB7002B7626 /* CalculatorModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalculatorModel.swift; sourceTree = "<group>"; };
+		705E41121E75F973002B7626 /* readingAssignment1 - Classes Structures and Computed Properties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "readingAssignment1 - Classes Structures and Computed Properties.swift"; path = "../../Notes/readingAssignment1 - Classes Structures and Computed Properties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +59,7 @@
 			isa = PBXGroup;
 			children = (
 				705E40FF1E748462002B7626 /* ViewController.swift */,
+				705E41121E75F973002B7626 /* readingAssignment1 - Classes Structures and Computed Properties.swift */,
 				705E41011E748462002B7626 /* Main.storyboard */,
 				705E41101E74CCB7002B7626 /* CalculatorModel.swift */,
 				705E410F1E7485CD002B7626 /* Supporting Files */,
@@ -148,6 +151,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				705E41131E75F973002B7626 /* readingAssignment1 - Classes Structures and Computed Properties.swift in Sources */,
 				705E41111E74CCB7002B7626 /* CalculatorModel.swift in Sources */,
 				705E41001E748462002B7626 /* ViewController.swift in Sources */,
 				705E40FE1E748462002B7626 /* AppDelegate.swift in Sources */,
