@@ -49,18 +49,25 @@ struct CalcBrain {
                 if accumulator != nil {
                     accumulator = fn(accumulator!)
                 }
-            case .binary(let fn):
-                break
+            case .binary(let function):
+                if accumulator != nil {
+                    pendingBinaryOperation = PendingBinaryOperation(fn: function, firstOperand: accumulator!)
+                    accumulator = nil
+                }
             case .equals:
-                break
+                performPendingBinaryOperation()
             }
             
         }
     } // end performOperation
     
-    private struct PendingBinaryOperation {
-        
+    private mutating func performPendingBinaryOperation(){
+        if pendingBinaryOperation != nil && accumulator != nil {
+            accumulator = pendingBinaryOperation!.performOperation(with: accumulator!)
+            pendingBinaryOperation = nil
+        }
     }
+
     
     mutating func setOperand(_ operand: Double) {
         accumulator = operand
@@ -71,4 +78,16 @@ struct CalcBrain {
             return accumulator
         }
     }
+    
+    private var pendingBinaryOperation: PendingBinaryOperation?
+
+    private struct PendingBinaryOperation {
+        let fn: (Double, Double) -> Double
+        let firstOperand: Double
+        
+        func performOperation (with secondOperand: Double) -> Double {
+            return fn(firstOperand, secondOperand)
+        }
+    }
+
 }
