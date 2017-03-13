@@ -12,9 +12,6 @@ func changeSign(a:Double) -> Double {
     return -a
 }
 
-func multiply (a:Double, b:Double) -> Double {
-    return a * b
-}
 
 struct CalcBrain {
     
@@ -34,8 +31,11 @@ struct CalcBrain {
         "e": Operation.constant(M_E),         //M_E,
         "√": Operation.unary(sqrt),      //sqrt()
         "cos": Operation.unary(cos),
-        "±": Operation.unary(changeSign),
-        "×": Operation.binary(multiply),
+        "±": Operation.unary({-$0}),
+        "×": Operation.binary({$0 * $1}),
+        "÷": Operation.binary({$0 / $1}),
+        "+": Operation.binary({$0 + $1}),
+        "-": Operation.binary({$0 - $1}),
         "=": Operation.equals
     ]
     
