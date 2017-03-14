@@ -31,6 +31,11 @@ struct CalcBrain {
         "e": Operation.constant(M_E),         //M_E,
         "√": Operation.unary(sqrt),      //sqrt()
         "cos": Operation.unary(cos),
+        "sin": Operation.unary(sin),
+        "x⁻¹": Operation.unary({1 / $0}),
+        "x²": Operation.unary({$0 * $0}),
+        "10ˣ": Operation.unary({pow((10), ($0))}),
+        "C": Operation.unary({$0 * 0}),
         "±": Operation.unary({-$0}),
         "×": Operation.binary({$0 * $1}),
         "÷": Operation.binary({$0 / $1}),
