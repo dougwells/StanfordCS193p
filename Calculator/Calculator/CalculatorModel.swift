@@ -22,7 +22,7 @@ struct CalcBrain {
     private enum Operation {            //Need enum so dictionary can return different types
         case constant(Double)           //Type is a Double
         case unary((Double) -> Double)    //Type is a func that takes a Double & returns a Double
-        case binary((Double, Double) -> Double)
+        case binary((Double, Double) -> Double)  //Type is a fn that takes two Doubles & ret Double
         case equals
     }
     
