@@ -28,6 +28,27 @@
  Int is simply truncated
  4.75 becomes 4, and -3.9 becomes -3
  Int(Double.pi)  // 3
+ 
+ Functions w/Optional Tuple Return Types
+ If the tuple type to be returned from a function has the potential to have “no value” for the entire tuple, you can use an optional tuple return type to reflect the fact that the entire tuple can be nil. You write an optional tuple return with a question mark such as (Int, Int)? or (String, Int, Bool)?
 
+ Closures & Capturing values
+ A closure can capture constants and variables from the surrounding context/scope in which it was defined. The closure can then refer to and modify those values from within its body, even if the original scope no longer exists.
+ 
+ func makeIncrementer(forIncrement amount: Int) -> () -> Int {
+ var runningTotal = 0
+ func incrementer() -> Int {
+ runningTotal += amount
+ return runningTotal
+ }
+ return incrementer
+ }
+ let plus10 = makeIncrementer(forIncrement: 10)
+ plus10()	//10
+ plus10()	//20
+ Closures Are Reference Types
+ We used “let” to define plus10.  How can a constant change?
+ it is the choice of closure that plus10 refers to that is constant, and not the contents of the closure itself.
+ What is constant is the reference to the function or closure.
  
 */
