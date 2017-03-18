@@ -51,4 +51,20 @@
  it is the choice of closure that plus10 refers to that is constant, and not the contents of the closure itself.
  What is constant is the reference to the function or closure.
  
+ ===
+ “Mutating” & value types (copy not ref)
+ Structures and enums are value types. By default, the properties of a value type cannot be modified from within its instance methods.
+ If you need to modify the properties of your structure or enumeration, you can opt in to mutating behavior for that method.
+ struct Point {
+ var x = 0.0, y = 0.0
+ mutating func moveBy(x deltaX: Double, y deltaY: Double) {
+ x += deltaX
+ y += deltaY
+ }
+ }
+ var somePoint = Point(x: 1.0, y: 1.0)
+ somePoint.moveBy(x: 2.0, y: 3.0)
+ print("The point is now at (\(somePoint.x), \(somePoint.y))")
+ // Prints "The point is now at (3.0, 4.0)"
+ 
 */
