@@ -51,7 +51,7 @@
  it is the choice of closure that plus10 refers to that is constant, and not the contents of the closure itself.
  What is constant is the reference to the function or closure.
  
- ===
+ === Methods:  Mutating, Instance Methods, Type Methods ===
  “Mutating” & value types (copy not ref)
  Structures and enums are value types. By default, the properties of a value type cannot be modified from within its instance methods.
  If you need to modify the properties of your structure or enumeration, you can opt in to mutating behavior for that method.
@@ -66,5 +66,26 @@
  somePoint.moveBy(x: 2.0, y: 3.0)
  print("The point is now at (\(somePoint.x), \(somePoint.y))")
  // Prints "The point is now at (3.0, 4.0)"
+ 
+ Type Methods
+ Definition:  Instance methods are methods that are called on an instance of a particular type. You can also define methods that are called on the type itself. These kinds of methods are called type methods. You indicate type methods by writing the static keyword before the func keyword.
+ 
+ 
+ Example:
+ struct LevelTracker {
+ static var highestUnlockedLevel = 1
+ var currentLevel = 1
+ 
+ static func unlock(_ level: Int) {
+ if level > highestUnlockedLevel { highestUnlockedLevel = level }
+ }
+ 
+ static func isUnlocked(_ level: Int) -> Bool {
+ return level <= highestUnlockedLevel
+ }
+ }
+ 
+ ===Subscripts===
+ 
  
 */
