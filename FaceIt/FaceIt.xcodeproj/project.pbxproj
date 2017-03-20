@@ -12,6 +12,7 @@
 		706130341E7EEF2F00B9A186 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 706130321E7EEF2F00B9A186 /* Main.storyboard */; };
 		706130361E7EEF2F00B9A186 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 706130351E7EEF2F00B9A186 /* Assets.xcassets */; };
 		706130391E7EEF2F00B9A186 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 706130371E7EEF2F00B9A186 /* LaunchScreen.storyboard */; };
+		706130461E7EF14700B9A186 /* FaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706130451E7EF14700B9A186 /* FaceView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		706130351E7EEF2F00B9A186 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		706130381E7EEF2F00B9A186 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7061303A1E7EEF2F00B9A186 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		706130451E7EF14700B9A186 /* FaceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FaceView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +56,23 @@
 		7061302D1E7EEF2F00B9A186 /* FaceIt */ = {
 			isa = PBXGroup;
 			children = (
-				7061302E1E7EEF2F00B9A186 /* AppDelegate.swift */,
+				706130401E7EEF8900B9A186 /* SupportingFiles */,
 				706130301E7EEF2F00B9A186 /* ViewController.swift */,
+				706130451E7EF14700B9A186 /* FaceView.swift */,
 				706130321E7EEF2F00B9A186 /* Main.storyboard */,
+			);
+			path = FaceIt;
+			sourceTree = "<group>";
+		};
+		706130401E7EEF8900B9A186 /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				7061302E1E7EEF2F00B9A186 /* AppDelegate.swift */,
 				706130351E7EEF2F00B9A186 /* Assets.xcassets */,
 				706130371E7EEF2F00B9A186 /* LaunchScreen.storyboard */,
 				7061303A1E7EEF2F00B9A186 /* Info.plist */,
 			);
-			path = FaceIt;
+			name = SupportingFiles;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,6 +150,7 @@
 			files = (
 				706130311E7EEF2F00B9A186 /* ViewController.swift in Sources */,
 				7061302F1E7EEF2F00B9A186 /* AppDelegate.swift in Sources */,
+				706130461E7EF14700B9A186 /* FaceView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
