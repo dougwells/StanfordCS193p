@@ -32,12 +32,12 @@
                                         <real key="value" value="4"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="mouthCurvature">
-                                        <real key="value" value="0.5"/>
+                                        <real key="value" value="0.75"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="color">
                                         <color key="value" red="0.99346250300000005" green="0.87501651049999996" blue="0.39278319480000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="eyesOpen" value="NO"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="eyesOpen" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
