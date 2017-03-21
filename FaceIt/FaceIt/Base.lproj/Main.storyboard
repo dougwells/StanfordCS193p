@@ -49,6 +49,9 @@
                             <constraint firstItem="CEZ-jm-BVl" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="vGl-vQ-3d1"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="faceView" destination="CEZ-jm-BVl" id="gV3-sE-ToI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

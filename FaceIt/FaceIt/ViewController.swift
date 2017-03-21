@@ -10,6 +10,33 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var faceView: FaceView! {
+        //property observer. Runs when iOS hooks up outlet to faceView
+        didSet { updateUI() }
+    }
+    
+    var expression = FacialExpression(eyes: .closed, mouth: .frown) {
+        //property observer
+        didSet { updateUI() }
+    }
+    
+    private func updateUI() {
+        switch expression.eyes {
+        case .open:
+            faceView?.eyesOpen = true   //optional in case faceView not set yet (L5 12:50)
+        case .closed:
+            faceView?.eyesOpen = false
+        case .squinting:
+            faceView?.eyesOpen = false
+        }
+        
+        faceView.mouthCurvature = mouthCurvaturesDict[expression.mouth] ?? 0.0
+        
+    }
+    
+    private let mouthCurvaturesDict = [FacialExpression.Mouth.grin:0.5, .smile:1.0, .frown:-1.0, .nuetral: 0.0, .smirk:-0.5]
+    
+    
     
 }
 
