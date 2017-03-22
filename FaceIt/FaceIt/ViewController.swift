@@ -15,7 +15,7 @@ class ViewController: UIViewController {
         didSet { updateUI() }
     }
     
-    var expression = FacialExpression(eyes: .closed, mouth: .frown) {
+    var expression = FacialExpression(eyes: .open, mouth: .grin) {
         //property observer
         didSet { updateUI() }
     }

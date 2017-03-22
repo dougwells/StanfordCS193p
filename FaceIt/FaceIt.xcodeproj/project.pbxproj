@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7057EE6D1E8190B1005D2E9F /* ModelFacialExpression.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7057EE6C1E8190B1005D2E9F /* ModelFacialExpression.swift */; };
 		7061302F1E7EEF2F00B9A186 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7061302E1E7EEF2F00B9A186 /* AppDelegate.swift */; };
 		706130311E7EEF2F00B9A186 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706130301E7EEF2F00B9A186 /* ViewController.swift */; };
 		706130341E7EEF2F00B9A186 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 706130321E7EEF2F00B9A186 /* Main.storyboard */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7057EE6C1E8190B1005D2E9F /* ModelFacialExpression.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelFacialExpression.swift; sourceTree = "<group>"; };
 		7061302B1E7EEF2F00B9A186 /* FaceIt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FaceIt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7061302E1E7EEF2F00B9A186 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		706130301E7EEF2F00B9A186 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -60,6 +62,7 @@
 				706130301E7EEF2F00B9A186 /* ViewController.swift */,
 				706130451E7EF14700B9A186 /* FaceView.swift */,
 				706130321E7EEF2F00B9A186 /* Main.storyboard */,
+				7057EE6C1E8190B1005D2E9F /* ModelFacialExpression.swift */,
 			);
 			path = FaceIt;
 			sourceTree = "<group>";
@@ -151,6 +154,7 @@
 				706130311E7EEF2F00B9A186 /* ViewController.swift in Sources */,
 				7061302F1E7EEF2F00B9A186 /* AppDelegate.swift in Sources */,
 				706130461E7EF14700B9A186 /* FaceView.swift in Sources */,
+				7057EE6D1E8190B1005D2E9F /* ModelFacialExpression.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -314,6 +318,7 @@
 				7061303F1E7EEF2F00B9A186 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

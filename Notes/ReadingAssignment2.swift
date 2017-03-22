@@ -87,5 +87,98 @@
  
  ===Subscripts===
  
+ Struct w/subscript & associated value
+ 
+ struct TimesTable {
+ let multiplier: Int
+ subscript(index: Int) -> Int {
+ return multiplier * index
+ }
+ }
+ let threeTimesTable = TimesTable(multiplier: 3)
+ print("six times three is \(threeTimesTable[6])")
+ // Prints "six times three is 18"
+
+ 
+ 
+ ===@IBDesignable @ IBInspectable===
+ 
+ @IBDesignable
+ @ IBDesignable - Lets you see updated view in storyboard
+ @IBInspectable - Modify variables in  Attribute Inspector
+ (RHS panel in .storyboard)
+ import UIKit
+ 
+ @IBDesignable
+ class FaceView: UIView {
+ 
+ @IBInspectable
+ var scale: CGFloat = 0.9
+ 
+ @IBInspectable
+ var lineWidth: CGFloat = 5.0
+ 
+ @IBInspectable
+ var color: UIColor = UIColor.blue
+ 
+ @IBInspectable
+ var eyesOpen: Bool = true
+ 
+ ===Type Casting===
+
+ as? keyword
+ Downcast to a subType (if let book as? Fiction { … })
+ 
+ 
+ is keyword
+ Checks if item is of a certain Type (if book is Fiction { … })
+ 
+ 
+ Example
+ //Fiction & NonFiction are subclasses of Book
+ for book in bookLibrary {
+ 
+ //Check Type using "is" keyword
+ if book is Fiction {fictionCount += 1}
+ if book is NonFiction {nonFictionCount += 1}
+ 
+ //Downcast each book from its superclass (Book) to its true type
+ if let fiction = book as? Fiction {print("Fiction. Title = \(fiction.title)")}
+ if let nonFiction = book as? NonFiction {print("NonFiction. Title = \(nonFiction.title)")}
+ }
+ 
+ ===Gesture Recognizers===
+ Gestures
+ Obvious but ONLY VIEWS CAN RECOGNIZE A GESTURE
+ 
+ 
+ Two parts to setting up a gesture recognizer
+ Add a gesture recognizer to a UIView
+ Provide a method that gets run when the gesture recognizer detects a gesture.  This method is called “the handler”.  Handler gets 2 arguments
+ target:
+ “who gets notified?” (often self/the view controller)
+ target gets notified when gesture is recognized
+ 
+ 
+ action:
+ “what method gets invoked when gesture is recognized”
+ can pass the recognizer to this method as an argument
+ 
+ 
+ Gesture recognizers have methods & properties to give handler additional information
+ For example, UIPanGestureREcognizer has 3 methods
+ translation 	- how far has this pan moved since it started
+ velocity	- how fast is this finger/pan moving?
+ setTranslation - resets start point of pan/incremental panning
+ 
+ 
+ Abstract superclass UIGestureRecognizer also has methods/properties.  Importantly, one property gives access to gesture’s state
+ var state: UIGestureRecognizerState { get }
+ for continuous pan, goes from .possible, .began, .ended
+ Careful of states .failed & .cancelled
+ .failed: 		was not a pan.  It was a swipe
+ .cancelled:	phone call interrupts a pan
+
+
  
 */
