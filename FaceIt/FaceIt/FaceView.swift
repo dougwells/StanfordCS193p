@@ -11,20 +11,36 @@ import UIKit
 @IBDesignable
 class FaceView: UIView {
     
-    @IBInspectable
-    var scale: CGFloat = 0.9
+    //didSet is a property observer. Redraw View if any of these vars change
     
     @IBInspectable
-    var lineWidth: CGFloat = 5.0
+    var scale: CGFloat = 0.9 { didSet { setNeedsDisplay() } }
     
     @IBInspectable
-    var color: UIColor = UIColor.blue
+    var lineWidth: CGFloat = 5.0 { didSet { setNeedsDisplay() } }
     
     @IBInspectable
-    var eyesOpen: Bool = true
+    var color: UIColor = UIColor.blue { didSet { setNeedsDisplay() } }
     
     @IBInspectable
-    var mouthCurvature: Double = -0.5  //1.0 is full smile. -1.0 is full frown
+    var eyesOpen: Bool = true { didSet { setNeedsDisplay() } }
+    
+    @IBInspectable
+    //1.0 is full smile. -1.0 is full frown
+    var mouthCurvature: Double = -0.5  { didSet { setNeedsDisplay() } }
+    
+    func changeScale(byReactingTo pinchRecognizer: UIPinchGestureRecognizer) {
+        
+        switch pinchRecognizer.state {
+        case .cancelled, .ended:
+            scale *= pinchRecognizer.scale
+            pinchRecognizer.scale = 1
+            
+        default:
+            break
+        }
+        
+    }
     
     private var skullRadius: CGFloat {
         get {

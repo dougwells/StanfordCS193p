@@ -12,7 +12,14 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var faceView: FaceView! {
         //property observer. Runs when iOS hooks up outlet to faceView
-        didSet { updateUI() }
+        didSet {
+            
+            let handler = #selector(FaceView.changeScale(byReactingTo:))
+            let pinchRecognizer = UIPinchGestureRecognizer(target: faceView, action: handler)
+            faceView.addGestureRecognizer(pinchRecognizer)
+            updateUI()
+            
+        }
     }
     
     var expression = FacialExpression(eyes: .open, mouth: .grin) {
