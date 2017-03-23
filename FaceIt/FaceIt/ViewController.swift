@@ -19,16 +19,30 @@ class ViewController: UIViewController {
             
             let handler = #selector(FaceView.changeScale(byReactingTo:))
             let pinchRecognizer = UIPinchGestureRecognizer(target: faceView, action: handler)
+            
             let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(toggleEyes(byReactingTo:)))
             tapRecognizer.numberOfTapsRequired = 1  //default value but wanted to show 
+            
+            let swipeUpRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(increaseHappiness))
+            swipeUpRecognizer.direction = .up
+            
+            let swipeDownRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(decreaseHappiness))
+            swipeDownRecognizer.direction = .down
             
             //add pinch & tap Recognizers to the UIView (faceView)
             faceView.addGestureRecognizer(pinchRecognizer)
             faceView.addGestureRecognizer(tapRecognizer)
+            faceView.addGestureRecognizer(swipeUpRecognizer)
+            faceView.addGestureRecognizer(swipeDownRecognizer)
             
             updateUI()
             
         }
+    }
+    
+    var expression = FacialExpression(eyes: .open, mouth: .grin) {
+        //property observer
+        didSet { updateUI() }
     }
     
     func toggleEyes(byReactingTo tapRecognizer: UITapGestureRecognizer) {
@@ -42,10 +56,15 @@ class ViewController: UIViewController {
         }
     }
     
-    var expression = FacialExpression(eyes: .open, mouth: .grin) {
-        //property observer
-        didSet { updateUI() }
+    func increaseHappiness(){
+        expression = expression.happier
     }
+    
+    func decreaseHappiness() {
+        expression = expression.sadder
+    }
+    
+
     
     private func updateUI() {
         switch expression.eyes {
