@@ -10,15 +10,35 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    //"hooks up FaceView View to this ViewController
     @IBOutlet weak var faceView: FaceView! {
+        
         //property observer. Runs when iOS hooks up outlet to faceView
+        //not .changeScale method is defined in FaceView
         didSet {
             
             let handler = #selector(FaceView.changeScale(byReactingTo:))
             let pinchRecognizer = UIPinchGestureRecognizer(target: faceView, action: handler)
+            let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(toggleEyes(byReactingTo:)))
+            tapRecognizer.numberOfTapsRequired = 1  //default value but wanted to show 
+            
+            //add pinch & tap Recognizers to the UIView (faceView)
             faceView.addGestureRecognizer(pinchRecognizer)
+            faceView.addGestureRecognizer(tapRecognizer)
+            
             updateUI()
             
+        }
+    }
+    
+    func toggleEyes(byReactingTo tapRecognizer: UITapGestureRecognizer) {
+        if tapRecognizer.state == .ended {
+
+            if expression.eyes == .closed || expression.eyes == .squinting {
+                expression = FacialExpression(eyes: .open, mouth: expression.mouth)
+            } else {
+                expression = FacialExpression(eyes: .closed, mouth: expression.mouth)
+            }
         }
     }
     
