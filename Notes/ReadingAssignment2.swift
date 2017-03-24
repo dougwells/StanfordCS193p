@@ -178,6 +178,104 @@
  Careful of states .failed & .cancelled
  .failed: 		was not a pan.  It was a swipe
  .cancelled:	phone call interrupts a pan
+ 
+ 
+ ===Multiple MVCs===
+ Multiple MVCs (more complex / more powerful apps)
+ 
+ Do this by making other MVCs part of controller’s View (top purple oval above)
+ iOS gives us several of these (could also code your own)
+ 
+ 
+ UITabBarController (TBC)
+ lets user choose between multiple views (really MVCs) by choosing icons at bottom of screen (called a tab bar).
+ TBC gets these icons by asking the other MVC’s which icon to display
+ Example see Apple’s HealthKit app
+ 
+ 
+ UISplitViewController
+ has THREE views. (UISplitView & master/detail inside of it)
+ user sees 2 views (MVCs) side-by-side.  Only thing the SplitViewController draws is the line between master & detail
+ LHS is the “Master”
+ RHS is the “Detail” (larger of the 2)
+ 
+ 
+ UINavigationController (UNC).  List View - shows a list
+ most common of the 3 (TabBar, SplitView, Navigation)
+ For example of a UNC, see “Settings” on your iPhone
+ top MVC is called “All Settings”
+ Only part of UNC we see is the title: “Settings”
+ Gets title by asking the “All Settings” MVC “What is your title?” - answer: “Settings”
+ 
+ pushes onto & pops off a stack (think “stack of cards”)
+ Worth 3 minutes.  Watch L5 57:10 - 1:00:30
+ Click on “General”
+ New view/MVC is created and slides “on top of” All Settings view.  Old view still there in stack
+ top to bottom:  General - All Settings - UNC
+ toolbar at bottom of each view is controlled by its view controller (NOT the UNC)
+ Navigation bar at top (“back” button) controlled by UNC.  Automatically placed
+ When click “back”, previous view is taken off stack
+ rootViewController points to the base card
+ In this example: “All Settings”
+ Activity of adding new MVC to stack and adding top item in stack to UNC’s view is called “Segueing”
+ This segue example is called a “Show (push) segue
+ simply means segue in a UNC w/stack of cards
+ 
+ 
+ 
+ 
+ Array of multiple views accessed via the property viewControllers
+ var viewControllers: [UIViewController]? { get set }
+ Array is different for each type of controller
+ UITabBarController:  in order, L to R, in the array (0 = leftmost)
+ UISplitScreenController: 0 = Master, 1 = Detail
+ UINavigationController: 0 = root, 1=next MVC in stack, etc
+ UNC adds & deletes UIViewControllers as stack changes
+ 
+ 
+ How do you add TBC, SVC or UNC controller to your project?
+ UINavigationController
+ Highlight desired view in Xcode
+ Editor - Embed In - Navigation Controller
+ 
+ UISplitViewController
+ Xcode - Object Palette (lower RHS) & drag it out
+ Control-drag from SVC to the master MVC & detail MVC
+ black box. Choose “master view controller” from list
+ 
+ 
+ In this example, split view does not display on non-plus iphones.  Can simply embed master view in a UNC
+ Editor - Embed In - Navigation Controller
+ In view controller array, 0 = master which is now a UNC which has its own array.  0 = root which is that master view
+ 
+ 
+ UITabViewController
+ Object palette.  Drag out a TVC, control-drag to desired views
+ Can drag icons in tab bar around
+ Can set icons in Interface Inspector
+ 
+ 
+ Segues
+ Types
+ Show Segue - in UNC, push.  Else modal (see below)
+ Show Detail - SVC, show detail.  UNC, push
+ Modal Segue - Takes over entire screen (try to avoid)
+ Popover Seque - MVC appears in little popover window)
+ 
+ 
+ All segues create a new instance of the MVCs
+ Think of segues as ephemeral.
+ They come alive, do their thing & go away.
+ If call detail seque and one is already on screen, old one goes away and new detail instance is created.
+ BUT, “go back” button is NOT a seque so no new instance
+ 
+ 
+ How create seques
+ control-drag from button that makes view appear to desired MVC
+ black box - select desired type of segue
+ Click on created seque & set seque identifier (in Attrib Inspector)
+ Make name descriptive.  ie “Show Graph”
+
 
 
  
