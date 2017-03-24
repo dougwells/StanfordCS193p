@@ -275,6 +275,21 @@
  black box - select desired type of segue
  Click on created seque & set seque identifier (in Attrib Inspector)
  Make name descriptive.  ie “Show Graph”
+ 
+ Prepare for Segues
+ prepare(for segue: UIStoryboardSeque, sender: Any?)  method
+ most important method in multiple MVCs
+ parameter segue contains important info about the segue:
+ segue.identifier
+ identifier from the storyboard
+ segue.destinationViewController
+ controller of MVC you segue to (freshly created)
+ sender - what object is instigating this? (button, etc.  Can be nil)
+ CRUCIAL - when prepare(for seque: ..) runs, NONE OF THE MVCs outlets are set up yet.
+ 
+ shouldPerformSegue(withIdentifier identifier: String?, sender: Any?) -> Bool
+ Prevent segue from happening.  Return false.
+
 
 
 
