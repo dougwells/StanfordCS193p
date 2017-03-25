@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class FaceViewController: UIViewController {
 
     //"hooks up FaceView View to this ViewController
     @IBOutlet weak var faceView: FaceView! {
@@ -76,7 +76,7 @@ class ViewController: UIViewController {
             faceView?.eyesOpen = false
         }
         
-        faceView.mouthCurvature = mouthCurvaturesDict[expression.mouth] ?? 0.0
+        faceView?.mouthCurvature = mouthCurvaturesDict[expression.mouth] ?? 0.0
         
     }
     
