@@ -20,6 +20,7 @@ class EmotionsViewController: UIViewController {
         
         
         if let navigationController = destinationViewController as? UINavigationController {
+            
             destinationViewController = navigationController.visibleViewController ?? destinationViewController
         }
  
@@ -29,6 +30,14 @@ class EmotionsViewController: UIViewController {
             let expression = emotionalFaces[identifier] {
             
                 faceViewController.expression = expression
+            
+            faceViewController.navigationItem.title = (sender as? UIButton)?.currentTitle
+            
+           /*
+            if let emotionButton = sender as? UIButton {
+                faceViewController.navigationItem.title = emotionButton.currentTitle
+            }
+        */
         }
         
     } // end prepare(for seque:)

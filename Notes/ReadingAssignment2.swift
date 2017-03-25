@@ -290,8 +290,109 @@
  shouldPerformSegue(withIdentifier identifier: String?, sender: Any?) -> Bool
  Prevent segue from happening.  Return false.
 
+=== L6: ViewController LifeCycle & Memory Management (ARC) ===
 
-
+ Lifecycle View Controller
+ summary
+ instantiated (created) from storyboard
+ awakeFromNib
+ segue preparation happens
+ outlets get set
+ viewDidLoad - good place to put initialization since lots done by then
+ Called EACH time view comes on screen (note: NOT viewDidLoad)
+ viewWillAppear
+ viewDidAppear
+ 
+ 
+ Called EACH time view comes off screen
+ viewWillDisappear
+ viewDidDisappear
+ 
+ 
+ Geometry - called anytime after viewDidLoad
+ viewWillLayoutSubviews
+ … autolayout happens ...
+ viewDidLayoutSubviews
+ 
+ 
+ ALWAYS CALL super.viewDidLoad(), super.viewDidDisappear, etc
+ viewDidLoad
+ great place to put setup code (ie, updateUI)
+ all outlets are set up (can see this w/ didSet)
+ segues have been prepared for
+ next, viewDidLoad is called (only runs once per lifecycle)
+ BUT DO NOT DO GEOMETRY based things (constraints)
+ B/C device geometry is not yet set
+ 
+ 
+ viewWillAppear
+ you know the view will soon be on screen
+ start something “expensive” ie, DB call
+ 
+ 
+ viewDidAppear - now view is on screen.
+ Good time to start animations (no need to b4 on screen)
+ 
+ 
+ viewWillDisappear - match with w/viewDidAppear (stop stuff started by vDA)
+ viewDidDisappear - match with viewWillAppear (stop processes started by vWA)
+ 
+ 
+ When do geometry based stuff?
+ generally, autolayout takes care of it for you
+ if want to do yourself:
+ viewWillLayoutSubviews()
+ viewDidLayoutSubviews()
+ these get called more often than people think they will
+ BTW, autolayout happens between the two calls above
+ 
+ 
+ awakeFromNib()
+ Not really part of View Controller lifecycle
+ Everything that gets sent from storyboard (views, view controllers, etc) gets sent awakeFromNib().  Sent very early.
+ Better to put stuff in lifecycle items (viewWillLoad, viewDidLoad) than put in awakeFromNib().  Gets overused.
+ 
+ http://bit.ly/1QC7IcX
+ 
+ Memory Management
+ Automatic Reference Counting (ARC)
+ Swift does NOT use “garbage collection”
+ Reference types (classes) are stored in the heap
+ ARC keeps a “tally” of all the vars/lets that make reference to a class.  When no more references (tally count is 0), it removes class from heap
+ 
+ 
+ Influence ARC
+ strong pointer
+ Strong is “normal” reference counting
+ As long as anyone anywhere has a strong pointer to an instance, it stays in the heap
+ This is the default.  No need to type it.  Every var is strong unless stated otherwise
+ weak pointer
+ If no one else is interested in this instance, than neither am I & set me to ‘nil’
+ Only applies to Optional pointers to reference types
+ Weak pointer NEVER keeps item in the heap
+ Helps avoid a “Memory Cycle” where two objects both point to each other strongly so they are kept in heap forever
+ unowned pointer
+ Dangerous.  Almost never used.  Tells Swift, do not worry about reference counting.  I’ll take care of memory management on it.
+ Will crash program if try to use it but it has already left the heap
+ Only used to break Memory Cycles
+ 
+ 
+ Closures & Memory Cycles
+ Capturing
+ Closures capture & hold onto values from within its scope
+ A closure is a reference type that lives in the heap
+ if Closure points to an item, it does so strongly.  If that item points back strongly to the closure, you have a memory cycle and both will stay in the heap forever.
+ 
+ 
+ Solution - weak pointer
+ Make self (UIView) a weak variable.  Otherwise UIView points strongly to closure addUnary and vice-versa.  Then viewControllers will keep accumulating in memory.  Very bad.
+ Swift throws compile error w/no self.  Warns that you are about to “capture” self (& that will create a memory cycle)
+ "Reference to property "display" in closure requires explicit 'self' to make capture semantics explicit"
+ 
+ addUnary("√"){ [ weak weakSelf = self ] in
+ weakSelf?.display.textColor = UIColor.green
+ return sqrt($0)
+ }
 
  
 */
