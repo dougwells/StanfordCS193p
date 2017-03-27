@@ -50,7 +50,7 @@ class ImageViewController: UIViewController, UIScrollViewDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        imageURL = URL(string: "http://stanford.edu/about/images/intro_about.jpg")
+        //imageURL = URL(string: "http://stanford.edu/about/images/intro_about.jpg")
         
     }
     
