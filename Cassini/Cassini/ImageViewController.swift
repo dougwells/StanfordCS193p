@@ -8,13 +8,13 @@
 
 import UIKit
 
-class ImageViewController: UIViewController
+class ImageViewController: UIViewController, UIScrollViewDelegate
 {
     
     @IBOutlet weak var scrollView: UIScrollView! {
         didSet {
             
-            scrollView.delegate = self
+            scrollView.delegate = self  //sets delegate to ImageViewController (same as cntrl-drag to yellow box in storyboard)
             scrollView.minimumZoomScale = 0.3
             scrollView.maximumZoomScale = 3.0
             scrollView.contentSize = imageView.frame.size
@@ -60,6 +60,10 @@ class ImageViewController: UIViewController
         
     }
     
+    func viewForZooming(in scrollView: UIScrollView) -> UIView? {
+        return imageView
+    }
+    
     
     //create our Image View programatically
     fileprivate var imageView = UIImageView(frame: CGRect.zero) //same as UIImageView()
@@ -74,10 +78,12 @@ class ImageViewController: UIViewController
             scrollView?.contentSize = imageView.frame.size
         }
     }
-}
+} //End Class ImageViewController
 
+/*
 extension ImageViewController: UIScrollViewDelegate {
     public func viewForZooming(in scrollView: UIScrollView) -> UIView? {
         return imageView
     }
 }
+*/
