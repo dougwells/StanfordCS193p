@@ -14,7 +14,7 @@ class ImageViewController: UIViewController, UIScrollViewDelegate
     @IBOutlet weak var scrollView: UIScrollView! {
         didSet {
             
-            scrollView.delegate = self  //sets delegate to ImageViewController (same as cntrl-drag to yellow box in storyboard)
+            scrollView.delegate = self  //sets delegate to self/ImageViewController (same as cntrl-drag to yellow box in storyboard)
             scrollView.minimumZoomScale = 0.3
             scrollView.maximumZoomScale = 3.0
             scrollView.contentSize = imageView.frame.size
@@ -22,6 +22,8 @@ class ImageViewController: UIViewController, UIScrollViewDelegate
 
         }
     }
+    
+    //Mark: Model
     
     var imageURL: URL? {
         didSet {
@@ -66,6 +68,7 @@ class ImageViewController: UIViewController, UIScrollViewDelegate
     
     
     //create our Image View programatically
+    //fileprivate makes private outside of this controller (ImageViewController)
     fileprivate var imageView = UIImageView(frame: CGRect.zero) //same as UIImageView()
     
     private var image: UIImage? {   //? b/c imageView.image can be nil
