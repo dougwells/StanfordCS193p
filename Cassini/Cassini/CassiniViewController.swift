@@ -15,21 +15,30 @@ class CassiniViewController: UIViewController
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let url = DemoURL.NASA[segue.identifier ?? ""] {
-            
-            let destination = navControllerToView(view: segue.destination)
-            
-                if let imageVC = (destination as? ImageViewController) {
-                imageVC.imageURL = url
+                if let imageVC = (segue.destination.contents as? ImageViewController) {
+                    imageVC.imageURL = url
+                    imageVC.title = (sender as? UIButton)?.currentTitle
                 }
     }
     }
 } //End CassiniViewController
 
-extension CassiniViewController {
+extension UIViewController {
+    
+    var contents: UIViewController {
+        if let navcon = (self as? UINavigationController) {
+            return navcon.visibleViewController ?? self
+        } else {
+            return self
+        }
+    }
+    
+    /*
     func navControllerToView(view: UIViewController) -> UIViewController {
         if let visibleView = (view as? UINavigationController) {
             return visibleView.visibleViewController!
         }
         return view
     }
+    */
 }
