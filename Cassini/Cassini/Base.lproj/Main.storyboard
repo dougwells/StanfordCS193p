@@ -94,6 +94,11 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="leA-E5-jQa">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                             </scrollView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="apm-GL-Kdm">
+                                <rect key="frame" x="169" y="315" width="37" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="color" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -106,6 +111,7 @@
                     <navigationItem key="navigationItem" id="UBC-qC-fnI"/>
                     <connections>
                         <outlet property="scrollView" destination="leA-E5-jQa" id="QHZ-Lg-7hM"/>
+                        <outlet property="spinner" destination="apm-GL-Kdm" id="9bh-8m-WVL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s9g-Xw-opw" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -150,6 +156,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="eMj-nJ-fJY"/>
+        <segue reference="H6n-b4-wQ0"/>
     </inferredMetricsTieBreakers>
 </document>

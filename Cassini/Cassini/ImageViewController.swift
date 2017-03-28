@@ -15,13 +15,15 @@ class ImageViewController: UIViewController, UIScrollViewDelegate
         didSet {
             
             scrollView.delegate = self  //sets delegate to self/ImageViewController (same as cntrl-drag to yellow box in storyboard)
-            scrollView.minimumZoomScale = 0.3
+            scrollView.minimumZoomScale = 0.03
             scrollView.maximumZoomScale = 3.0
             scrollView.contentSize = imageView.frame.size
             scrollView.addSubview(imageView)
 
         }
     }
+    
+    
     
     //Mark: Model
     
@@ -38,9 +40,13 @@ class ImageViewController: UIViewController, UIScrollViewDelegate
         }
     }
     
+    @IBOutlet weak var spinner: UIActivityIndicatorView!
+    
+    
     private func fetchImage(){
         if let url = imageURL {
             
+            spinner?.startAnimating()  //stops anytime var image is set
             DispatchQueue.global(qos: .userInitiated).async { [weak self] in
                 let urlContents = try? Data(contentsOf: url) //nil if throws
                 if let imageData = urlContents, url == self?.imageURL {
@@ -86,7 +92,10 @@ class ImageViewController: UIViewController, UIScrollViewDelegate
         set {
             imageView.image = newValue
             imageView.sizeToFit()
+            //careful.  scrollview might not be set yet.
+            //optional chaining so it does nothing if it is not set
             scrollView?.contentSize = imageView.frame.size
+            spinner?.stopAnimating()
         }
     }
 } //End Class ImageViewController

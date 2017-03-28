@@ -8,8 +8,30 @@
 
 import UIKit
 
-class CassiniViewController: UIViewController
+class CassiniViewController: UIViewController, UISplitViewControllerDelegate
 {
+    
+    //set CassiniViewController as SplitView Delegate so see list
+    //of planets when app opens vs blank Detail Page
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        self.splitViewController?.delegate = self
+        //every viewController has a var/prop called "splitViewController"
+        //which is the splitView controller it is in IF its in a SplitViewController
+    }
+    
+    //Delegate will say it collapsed secondary (detail) over master if imageURL is nil
+    //The delegate is lying.  We say we did it (return true) even though we did not
+    //When delegate returns false, that tells the SVC it needs to do the collapse itself
+    func splitViewController(_ splitViewController: UISplitViewController, collapseSecondary secondaryViewController: UIViewController, onto primaryViewController: UIViewController) -> Bool {
+        if primaryViewController.contents == self {
+            if let ivc = secondaryViewController.contents as? ImageViewController, ivc.imageURL == nil {
+                return true     //saying we did collapse (even tho we did not)
+            }
+        }
+        return false
+    }
 
     
     // MARK: - Navigation
@@ -25,6 +47,7 @@ class CassiniViewController: UIViewController
 
 extension UIViewController {
     
+    // Need b/c UNC but want the visible window
     var contents: UIViewController {
         if let navcon = (self as? UINavigationController) {
             return navcon.visibleViewController ?? self
