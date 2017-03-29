@@ -14,6 +14,7 @@
 		701010C71E88377E00D578C9 /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 701010C61E88377E00D578C9 /* ImageViewController.swift */; };
 		7064F1201E899023004065E7 /* CassiniViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7064F11F1E899023004065E7 /* CassiniViewController.swift */; };
 		7064F1221E8990E1004065E7 /* DemoURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7064F1211E8990E1004065E7 /* DemoURL.swift */; };
+		70738B161E8BFD62003E2BD4 /* readingAssignment3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70738B151E8BFD62003E2BD4 /* readingAssignment3.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		701010C61E88377E00D578C9 /* ImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
 		7064F11F1E899023004065E7 /* CassiniViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CassiniViewController.swift; sourceTree = "<group>"; };
 		7064F1211E8990E1004065E7 /* DemoURL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoURL.swift; sourceTree = "<group>"; };
+		70738B151E8BFD62003E2BD4 /* readingAssignment3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = readingAssignment3.swift; path = ../../Notes/readingAssignment3.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 			isa = PBXGroup;
 			children = (
 				701010B71E88364200D578C9 /* Main.storyboard */,
+				70738B151E8BFD62003E2BD4 /* readingAssignment3.swift */,
 				7064F11F1E899023004065E7 /* CassiniViewController.swift */,
 				7064F1211E8990E1004065E7 /* DemoURL.swift */,
 				701010C61E88377E00D578C9 /* ImageViewController.swift */,
@@ -151,6 +154,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				70738B161E8BFD62003E2BD4 /* readingAssignment3.swift in Sources */,
 				7064F1221E8990E1004065E7 /* DemoURL.swift in Sources */,
 				701010C71E88377E00D578C9 /* ImageViewController.swift in Sources */,
 				7064F1201E899023004065E7 /* CassiniViewController.swift in Sources */,

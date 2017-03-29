@@ -136,6 +136,34 @@
             </objects>
             <point key="canvasLocation" x="-978.39999999999998" y="101.19940029985008"/>
         </scene>
+        <!--Table View Controller-->
+        <scene sceneID="cmy-sd-Sgs">
+            <objects>
+                <tableViewController id="rsm-nx-JvT" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="bs5-I0-Rfa">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="4u2-bq-w9D">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4u2-bq-w9D" id="oRf-py-eRW">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="rsm-nx-JvT" id="U6F-9f-0aK"/>
+                            <outlet property="delegate" destination="rsm-nx-JvT" id="pdP-9A-3fE"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="B1c-wQ-GjT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1924" y="875"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="xSA-mp-Duv">
             <objects>
@@ -156,6 +184,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="H6n-b4-wQ0"/>
+        <segue reference="eMj-nJ-fJY"/>
     </inferredMetricsTieBreakers>
 </document>
