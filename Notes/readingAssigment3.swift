@@ -1,6 +1,10 @@
 //
-//  readingAssignment3.swift
-
+//  readingAssigment3.swift
+//  
+//
+//  Created by Doug Wells on 3/29/17.
+//
+//
 
 /*
  
