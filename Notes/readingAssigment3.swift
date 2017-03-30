@@ -75,5 +75,50 @@
  implement cellForRowAt (above image)
  returns loaded up UITableViewCell
 
+ Segue from row (or “accessory item” - arrow or circle-i at end of row) to a view
+ control-drag from row to view
+ black box appears.  “Selection Segue” or “Accessory Action”
+ give segue a name (attrib inspector - Identifier)
+ prepareForSeque (sender is UITableViewCell)
+ 
+ 
+ 
+ TableView Delegate
+ Focus is on how data is DISPLAYED
+ NOT the data displayed - that dataSource’s job
+ Also lets you watches for TableView activities
+ cell “was Selected”, “should display”, etc
+ lots of “will”/”did” methods offered by Delegate
+ didSelectRowAt(indexPath: IndexPath) { …}
+ accessoryButtonTappedForRowAt(indexPath: IndexPath)
+ etc
+ Usually dataSource and dataDelegate are same object
+ the controller of the MVC that contains the UITableView
+ Setting dataSource & dataDelegate is set up automagically for us if we use UITableViewController
+ 
+ 
+ Controlling height of rows
+ If use autolayout (ie, set constraints w/in UITableViewCell)
+ BE SURE TO USE “ESTIMATE”
+ Otherwise, if have 100k cells, does it for all of them
+ With Estimate, only does it for cells in visible view area
+ 
+ 
+ 
+ 
+ What if your model changes?
+ TELL YOUR TABLEVIEW EVERY TIME YOU CHANGE YOUR MODEL
+ If # sections/rows or display of a cell changes, tell the TableView
+ Mantra: “Change your model, tell the TableView”
+ 
+ 
+ func reloadData()
+ BIG Hammer.  Goes back to how many sections/rows
+ redraws cell UIViews. Expensive
+ 
+ 
+ What if only changed 1 row (or a few rows)?
+ func reloadRowsAt(indexPaths: [IndexPath] …
+
  
 */
