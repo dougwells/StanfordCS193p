@@ -21,6 +21,8 @@ class TweetTableViewController: UITableViewController, UITextFieldDelegate {
     
     var searchText: String? {
         didSet {
+            searchTextField?.text = searchText
+            searchTextField?.resignFirstResponder() // hide keyboard
             tweets.removeAll()
             tableView.reloadData()  //reloads entire table. OK since model empty
             searchForTweets()
@@ -53,10 +55,24 @@ class TweetTableViewController: UITableViewController, UITextFieldDelegate {
     }
     
 
+    @IBOutlet weak var searchTextField: UITextField! {
+        didSet {
+            searchTextField.delegate = self
+        }
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == searchTextField {
+            searchText = searchTextField.text
+        }
+        return true
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        searchText = "#stanford"
+        tableView.estimatedRowHeight = tableView.rowHeight
+        tableView.rowHeight = UITableViewAutomaticDimension
+        //searchText = "@paulg"
     }
     
     // MARK: - UITableViewDataSource
@@ -74,9 +90,17 @@ class TweetTableViewController: UITableViewController, UITextFieldDelegate {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Tweet", for: indexPath)
         let tweet: Tweet = tweets[indexPath.section][indexPath.row]
         
-        //configure the cell
+        //configure the cell (Prototype cell = subtype)
 //        cell.textLabel?.text = tweet.text
 //        cell.detailTextLabel?.text = tweet.user.name
+        
+        //configure the cell (Prototype cell = "custom")
+        
+        if let tweetCell = cell as? TweetTableViewCell {
+            tweetCell.tweet = tweet
+            
+        }
+        
         return cell
         }
 }
