@@ -22,7 +22,7 @@ class TweetTableViewController: UITableViewController, UITextFieldDelegate {
     var searchText: String? {
         didSet {
             tweets.removeAll()
-            tableView.reloadData()
+            tableView.reloadData()  //reloads entire table. OK since model empty
             searchForTweets()
             title = searchText
         }
@@ -38,11 +38,15 @@ class TweetTableViewController: UITableViewController, UITextFieldDelegate {
     private var lastTwitterRequest: Twitter.Request?
    
     private func searchForTweets() {
-        if let request = twitterRequest() {
+        if let request = twitterRequest() { //done off of maine queue
             lastTwitterRequest = request
             request.fetchTweets{ [weak self] newTweets in
-                if request == self?.lastTwitterRequest {
-                    self?.tweets.insert(newTweets, at: 0)
+                DispatchQueue.main.async {  //get back on main queue to do UI work below
+                    if request == self?.lastTwitterRequest {
+                        self?.tweets.insert(newTweets, at: 0) //Changed model, must reload
+                        //just want to reload the inserted tweets
+                        self?.tableView.insertSections([0], with: .fade)
+                    }
                 }
             }
         }
@@ -68,6 +72,9 @@ class TweetTableViewController: UITableViewController, UITextFieldDelegate {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Tweet", for: indexPath)
+        let tweet: Tweet = tweets[indexPath.section][indexPath.row]
+        cell.textLabel?.text = tweet.text
+        cell.detailTextLabel?.text = tweet.user.name
         return cell
         }
 }
