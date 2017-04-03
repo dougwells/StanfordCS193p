@@ -13,6 +13,8 @@
 		7068ABAD1E926ABC00E5BAE1 /* CoreDataExample.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7068ABAB1E926ABC00E5BAE1 /* CoreDataExample.xcdatamodeld */; };
 		7068ABAF1E926ABC00E5BAE1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7068ABAE1E926ABC00E5BAE1 /* Assets.xcassets */; };
 		7068ABB21E926ABC00E5BAE1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7068ABB01E926ABC00E5BAE1 /* LaunchScreen.storyboard */; };
+		7068ABBC1E92890200E5BAE1 /* Tweet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7068ABBB1E92890200E5BAE1 /* Tweet.swift */; };
+		7068ABBE1E928A4400E5BAE1 /* TwitterUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7068ABBD1E928A4400E5BAE1 /* TwitterUser.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		7068ABAE1E926ABC00E5BAE1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7068ABB11E926ABC00E5BAE1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7068ABB31E926ABC00E5BAE1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7068ABBB1E92890200E5BAE1 /* Tweet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tweet.swift; sourceTree = "<group>"; };
+		7068ABBD1E928A4400E5BAE1 /* TwitterUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwitterUser.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +60,8 @@
 		7068ABA31E926ABC00E5BAE1 /* CoreDataExample */ = {
 			isa = PBXGroup;
 			children = (
+				7068ABBB1E92890200E5BAE1 /* Tweet.swift */,
+				7068ABBD1E928A4400E5BAE1 /* TwitterUser.swift */,
 				7068ABA41E926ABC00E5BAE1 /* AppDelegate.swift */,
 				7068ABA61E926ABC00E5BAE1 /* ViewController.swift */,
 				7068ABA81E926ABC00E5BAE1 /* Main.storyboard */,
@@ -140,9 +146,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7068ABBE1E928A4400E5BAE1 /* TwitterUser.swift in Sources */,
 				7068ABA71E926ABC00E5BAE1 /* ViewController.swift in Sources */,
 				7068ABA51E926ABC00E5BAE1 /* AppDelegate.swift in Sources */,
 				7068ABAD1E926ABC00E5BAE1 /* CoreDataExample.xcdatamodeld in Sources */,
+				7068ABBC1E92890200E5BAE1 /* Tweet.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
