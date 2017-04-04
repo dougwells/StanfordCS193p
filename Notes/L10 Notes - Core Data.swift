@@ -80,6 +80,39 @@
  //handle error
 	}
  }
+ 
+ === Queries ===
+ Querying the database
+ Do queries using NSFetchRequest
+ 3 parts to a NSFetchRequest
+ Entity to fetch - returns an array of fetched objects
+ NSSortDescriptors - order of fetched array
+ NSPredicate - which of th Entities to fetch
+ Optional part.  Default is all of them
+ Code example
+ let request: NSFetchRequest<Tweet> = Tweet.fetchRequest() //rare case. Swift can’t infer type
+ request.sortDescriptors = [sortDesc1, sortDesc2, ...]
+ request.predicate = …
+ 
+ ----
+ Example:
+ let request: NSFetchRequest<Tweet> = Tweet.fetchRequest() //fetches ALL tweets
+ 
+ let sortDescriptor = NSSortDescriptor(			//Sorts returning array
+	key: “twitterUser”,
+ ascending: true,
+ selector: #selector(NSString.localizedStandardCompare(_:))
+ //what method to do sort?
+ //usually just “compare” but strings have lots of options (one above is common)
+ //Must be exposed to the Obj-C runtime thus NSString not String
+ //Optional.  Default is “compare” (greater than, less than, same)
+ //Array of sort descr b/c sort by one thing then another (first then last name)
+ 
+ 
+ NSPredicate		//Find tweets that meet criteria.  Use %@ for search term (see docs)
+ //Ultimately, Swift builds a Sequel statement to do the fetch
+ 
+
 
  
  
