@@ -133,6 +133,20 @@
 	//perform background task w/passed in context
 	try? context.save()	//DON’T FORGET TO SAVE!!
  }
+ 
+ Core Data and UITableView (match made in heaven)
+ Core Data can generate lots of data
+ UITableView can display this data nicely
+ NSFetchedResultsController (NSFRC)
+ hooks NSFetchRequest UITableViewController
+ if something in DB changes, updates the view
+ usually have an NSFRC var in UIViewController
+ use NSFRC as UITableViewDataSource
+ How implement.  See code in 2 slides below
+ create an NSFRC variable
+ numberOfSections, numberOfRows
+ cellForRowAt
+
 
 
  
