@@ -112,6 +112,27 @@
  NSPredicate		//Find tweets that meet criteria.  Use %@ for search term (see docs)
  //Ultimately, Swift builds a Sequel statement to do the fetch
  
+--- MultiThreading & Core Data ---
+ Multi-Thread searches using Core Data
+ normally not a problem Core Data is fast - main thread OK
+ AppDelegate.viewContext is done on Main Queue (view)
+ Question is how to do search off Main queue?
+ NSManagedObjectContext is NOT THREADSAFE
+ a context can ONLY BE USED ON THE THREAD IT IS CREATED ON.  So … how do multi-thread searches?
+ Each database can have multiple contexts
+ But, need to be sure each context stays on the que it was created it.  How ensure this?
+ put all code in context.performBlock { … }
+ or context.performBlockAndWait { ... }
+ Generally good idea to wrap all Core Data code in one of these two block
+ How get off Main Queue (for context other than .viewContext?)
+ Use to be hard.  Now easy b/c new iOS10 method
+ persistantContainer has a simple method
+ 
+ 
+ AppDelegate.persistantContainer.performBackgroundTask { context in
+	//perform background task w/passed in context
+	try? context.save()	//DON’T FORGET TO SAVE!!
+ }
 
 
  
