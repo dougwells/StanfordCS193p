@@ -9,6 +9,22 @@
 /*
  Core Data
  
+ -- if forgot to click "Core Data" on project setup --
+ If project did NOT initially have Core Data
+ Set up a dummy project w/Core Data
+ In AppDelegate.swift, copy section marked Core Data
+ Also copy line above it w/saveContext from func applicationWillTerminate
+ copy this code into AppDelegate of project w/o Core Data
+ be sure to import CoreData
+ change name of NSPersistantContainer
+ let container = NSPersistentContainer(name: "SmashModel")
+ create the data model itself
+ File-New File - Core Data - Data Model
+ name whatever (SmashModel)
+ Done - That is it!  Easy
+
+ ----
+ 
  Set up Model in storyboard like interface
  Add Entities (like classes)
  Add Attributes (like vars/prop w/in Entitites)
