@@ -97,7 +97,7 @@ class TweetTableViewController: UITableViewController, UITextFieldDelegate {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Tweet", for: indexPath)
-        let tweet: Tweet = tweets[indexPath.section][indexPath.row]
+        let tweet: Twitter.Tweet = tweets[indexPath.section][indexPath.row]
         
         //configure the cell (Prototype cell = subtype)
 //        cell.textLabel?.text = tweet.text
