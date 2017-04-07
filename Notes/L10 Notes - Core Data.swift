@@ -163,6 +163,13 @@
  numberOfSections, numberOfRows
  cellForRowAt
 
+ New Files & Inheriting
+ When create Cocoa Class, can inherit from Apple’s supplied UIView, UIViewController, NSManagedObject, etc
+ On pull down menu
+ 
+ 
+ Or, from files/classes we have custom coded like TwiterTableViewController
+ Simply type in that name instead of pull-down menu choices
 
 
  
