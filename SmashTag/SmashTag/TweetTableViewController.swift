@@ -15,7 +15,7 @@ class TweetTableViewController: UITableViewController, UITextFieldDelegate {
     
     private var tweets = [Array<Twitter.Tweet>]() {
         didSet{
-            print(tweets)
+            //print(tweets)
         }
     }
     
@@ -29,6 +29,13 @@ class TweetTableViewController: UITableViewController, UITextFieldDelegate {
             searchForTweets()
             title = searchText
         }
+    }
+    
+    func insertTweets(_ newTweets: [Twitter.Tweet]) {
+        self.tweets.insert(newTweets, at: 0) //Changed model, must reload
+        //just want to reload the inserted tweets
+        self.tableView.insertSections([0], with: .fade)
+
     }
     
     private func twitterRequest() -> Twitter.Request? {
@@ -46,9 +53,7 @@ class TweetTableViewController: UITableViewController, UITextFieldDelegate {
             request.fetchTweets{ [weak self] newTweets in
                 DispatchQueue.main.async {  //get back on main queue to do UI work below
                     if request == self?.lastTwitterRequest {
-                        self?.tweets.insert(newTweets, at: 0) //Changed model, must reload
-                        //just want to reload the inserted tweets
-                        self?.tableView.insertSections([0], with: .fade)
+                        self?.insertTweets(newTweets)
                     }
                     self?.refreshControl?.endRefreshing()
                 }
