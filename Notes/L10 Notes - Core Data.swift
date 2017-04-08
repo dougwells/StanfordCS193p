@@ -171,7 +171,42 @@
  Or, from files/classes we have custom coded like TwiterTableViewController
  Simply type in that name instead of pull-down menu choices
 
+--- Core Data Thread Safety ---
+ (making sure methods run on correct que)
+ How call a function when on backgroundQue but run that method on the main que?  context.perform { … }
+ Some people say always wrap your function in context.perform block so it ALWAYS funs on correct que regardless of where it is called.
+ 
+ //want to update DB OFF OF the main Que
+ private func updateDatabase(with tweets: [Twitter.Tweet]) {
+ print("Starting DB Load")
+ container?.performBackgroundTask{ [weak self] context in
+ for twitterInfo in tweets {
+ _ = try? Tweet.findOrCreateTweet(matching: twitterInfo, in: context)
+ }
+ try? context.save()
+ print("new tweets saved")
+ self?.printDatabaseStatistics() //called off main que
+ }
+ }
+ 
+ private func printDatabaseStatistics() {
+ if let context = container?.viewContext {
+ context.perform {
+ //perform on the “right que” for that context
+ if Thread.isMainThread {
+ print("on main thread")
+ } else {
+ print("off main thread")
+ }
+ // good way to count
+ if let tweeterCount = try? context.count(for: TwitterUser.fetchRequest()) {
+ print("\(tweeterCount) Twitter users")
+ }
+ }
+ }
+ }
 
+ 
  
  
  
