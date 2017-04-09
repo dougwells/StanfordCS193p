@@ -116,17 +116,17 @@
             </objects>
             <point key="canvasLocation" x="840.79999999999995" y="139.880059970015"/>
         </scene>
-        <!--Smash Tweeter Table View Controller-->
+        <!--Smash Tweeters Table View Controller-->
         <scene sceneID="Ysl-1V-V1i">
             <objects>
-                <tableViewController id="ZCk-uw-wNq" customClass="SmashTweeterTableViewController" customModule="SmashTag" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="ZCk-uw-wNq" customClass="SmashTweetersTableViewController" customModule="SmashTag" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" allowsSelectionDuringEditing="YES" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="1VC-G0-b7H">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="3A1-4d-XZU" detailTextLabel="7YI-D9-35Z" style="IBUITableViewCellStyleSubtitle" id="pGh-j4-r4H">
-                                <rect key="frame" x="0.0" y="55.5" width="375" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TwitterUser Cell" textLabel="3A1-4d-XZU" detailTextLabel="7YI-D9-35Z" style="IBUITableViewCellStyleSubtitle" id="pGh-j4-r4H">
+                                <rect key="frame" x="0.0" y="56" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pGh-j4-r4H" id="QWq-yE-URr">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
