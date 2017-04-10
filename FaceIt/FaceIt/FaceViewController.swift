@@ -39,6 +39,7 @@ class FaceViewController: UIViewController {
             
         }
     }
+
     
     var expression = FacialExpression(eyes: .open, mouth: .grin) {
         //property observer
