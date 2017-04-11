@@ -12,16 +12,35 @@ class AsteroidsViewController: UIViewController {
 
     private var asteroidField: AsteroidFieldView!
     
+    private var asteroidBehavior = AsteroidBehavior()
+    
+    
+    // Use lazy b/c asteroidField cannot use any of our vars are funcs until
+    // We fully initialize ourself.  Also, must tell type since auto infer doesn't work w/lazy
+    // Finally, need self. to tell Swift this is our own attribute/property, not a class
+    private lazy var animator: UIDynamicAnimator = UIDynamicAnimator(referenceView: self.asteroidField)
+    
     override func viewDidAppear (_ animated: Bool) {
         super.viewDidAppear(animated)
         initializeIfNeeded()
+        animator.addBehavior(asteroidBehavior)
+        asteroidBehavior.pushAllAsteroids()
     }
+    
+    override func viewWillDisappear (_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        animator.removeBehavior(asteroidBehavior)  //stops animation. Must add velocity if start
+
+    }
+    
+    
     
     private func initializeIfNeeded() {
         if asteroidField == nil {
             asteroidField = AsteroidFieldView(frame: CGRect(center: view.bounds.mid, size: view.bounds.size))
             view.addSubview(asteroidField)
             asteroidField.addAsteroids(count: Constants.initialAsteroidCount)
+            asteroidField.asteroidBehavior = asteroidBehavior
         }
     }
     

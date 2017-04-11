@@ -16,6 +16,7 @@
 		7065CACE1E9D26A20076A098 /* AsteroidView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7065CACA1E9D26A20076A098 /* AsteroidView.swift */; };
 		7065CACF1E9D26A20076A098 /* CoreGraphicsExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7065CACB1E9D26A20076A098 /* CoreGraphicsExtensions.swift */; };
 		7065CAD01E9D26A20076A098 /* SpaceshipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7065CACC1E9D26A20076A098 /* SpaceshipView.swift */; };
+		7065CAD21E9D543C0076A098 /* AsteroidBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7065CAD11E9D543C0076A098 /* AsteroidBehavior.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		7065CACA1E9D26A20076A098 /* AsteroidView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsteroidView.swift; sourceTree = "<group>"; };
 		7065CACB1E9D26A20076A098 /* CoreGraphicsExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreGraphicsExtensions.swift; sourceTree = "<group>"; };
 		7065CACC1E9D26A20076A098 /* SpaceshipView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpaceshipView.swift; sourceTree = "<group>"; };
+		7065CAD11E9D543C0076A098 /* AsteroidBehavior.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsteroidBehavior.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +66,7 @@
 			children = (
 				7065CAB81E9D1FE20076A098 /* Main.storyboard */,
 				7065CAB61E9D1FE20076A098 /* AsteroidsViewController.swift */,
+				7065CAD11E9D543C0076A098 /* AsteroidBehavior.swift */,
 				7065CAC91E9D26A20076A098 /* AsteroidFieldView.swift */,
 				7065CAC71E9D257E0076A098 /* Assets.xcassets */,
 				7065CAC61E9D20640076A098 /* Supporting Files */,
@@ -162,6 +165,7 @@
 				7065CACD1E9D26A20076A098 /* AsteroidFieldView.swift in Sources */,
 				7065CACF1E9D26A20076A098 /* CoreGraphicsExtensions.swift in Sources */,
 				7065CACE1E9D26A20076A098 /* AsteroidView.swift in Sources */,
+				7065CAD21E9D543C0076A098 /* AsteroidBehavior.swift in Sources */,
 				7065CAD01E9D26A20076A098 /* SpaceshipView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

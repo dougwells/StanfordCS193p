@@ -11,6 +11,19 @@ import UIKit
 class AsteroidFieldView: UIView
 {
     
+    var asteroidBehavior: AsteroidBehavior? {
+        didSet {
+            for asteroid in asteroids {
+                oldValue?.removeAsteroid(asteroid)
+                asteroidBehavior?.addAsteroid(asteroid)
+            }
+        }
+    }
+    
+    private var asteroids: [AsteroidView] {
+        return subviews.flatMap {$0 as? AsteroidView }  //.flatmap returns non-nil values
+    }
+    
     var scale: CGFloat = 0.002  // size of average asteroid (compared to bounds.size)
     var minAsteroidSize: CGFloat = 0.25 // compared to average
     var maxAsteroidSize: CGFloat = 2.00 // compared to average
@@ -25,6 +38,7 @@ class AsteroidFieldView: UIView
                 asteroid.frame.origin = bounds.randomPoint
             } while !exclusionZone.isEmpty && asteroid.frame.intersects(exclusionZone)
             addSubview(asteroid)
+            asteroidBehavior?.addAsteroid(asteroid)
         }
     }
 }
