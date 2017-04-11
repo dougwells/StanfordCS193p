@@ -20,8 +20,8 @@ class FaceViewController: UIViewController {
             let handler = #selector(FaceView.changeScale(byReactingTo:))
             let pinchRecognizer = UIPinchGestureRecognizer(target: faceView, action: handler)
             
-            let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(toggleEyes(byReactingTo:)))
-            tapRecognizer.numberOfTapsRequired = 1  //default value but wanted to show 
+            //let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(toggleEyes(byReactingTo:)))
+            //tapRecognizer.numberOfTapsRequired = 1  //default value but wanted to show
             
             let swipeUpRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(increaseHappiness))
             swipeUpRecognizer.direction = .up
@@ -31,7 +31,7 @@ class FaceViewController: UIViewController {
             
             //add pinch & tap Recognizers to the UIView (faceView)
             faceView.addGestureRecognizer(pinchRecognizer)
-            faceView.addGestureRecognizer(tapRecognizer)
+            //faceView.addGestureRecognizer(tapRecognizer)
             faceView.addGestureRecognizer(swipeUpRecognizer)
             faceView.addGestureRecognizer(swipeDownRecognizer)
             
@@ -57,20 +57,40 @@ class FaceViewController: UIViewController {
         }
     }
     
-    private struct HeadShake {
-        static let angle = CGFloat.pi/6                 //radians
-        static let segmentDuration: TimeInterval = 0.5  //headshake has 3 segs (Lft/R/M)
+    private struct Headshake {
+        static let angle = CGFloat.pi/6
+        static let segmentDuration: TimeInterval = 0.5
     }
     
-    private func rotateHead(by angle: CGFloat) {
-        faceView.transform.rotated(by: angle)
+    private func rotateFace(by angle: CGFloat) {
+        faceView.transform = faceView.transform.rotated(by: angle)
     }
     
     private func shakeHead() {
         UIView.animate(
-            withDuration: HeadShake.segmentDuration,
-            animations: {rotateHead(by: HeadShake.angle)},
-            completion: <#T##((Bool) -> Void)?##((Bool) -> Void)?##(Bool) -> Void#>)
+            withDuration: Headshake.segmentDuration,
+            animations: { self.rotateFace(by: Headshake.angle) },
+            completion: { finished in
+                if finished {
+                    UIView.animate(
+                        withDuration: Headshake.segmentDuration,
+                        animations: {self.rotateFace(by: -Headshake.angle*2)},
+                        completion: { finished in
+                            if finished {
+                                UIView.animate(
+                                    withDuration: Headshake.segmentDuration,
+                                    animations: { self.rotateFace(by: Headshake.angle)}
+                                )
+                            }
+                        }
+                    )
+                }
+            }
+        )
+    }
+    
+    @IBAction func shakeHead(_ sender: UITapGestureRecognizer) {
+        shakeHead()
     }
     
     
