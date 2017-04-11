@@ -10,7 +10,25 @@ import UIKit
 
 class AsteroidsViewController: UIViewController {
 
+    private var asteroidField: AsteroidFieldView!
     
+    override func viewDidAppear (_ animated: Bool) {
+        super.viewDidAppear(animated)
+        initializeIfNeeded()
+    }
+    
+    private func initializeIfNeeded() {
+        if asteroidField == nil {
+            asteroidField = AsteroidFieldView(frame: CGRect(center: view.bounds.mid, size: view.bounds.size))
+            view.addSubview(asteroidField)
+            asteroidField.addAsteroids(count: Constants.initialAsteroidCount)
+        }
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        asteroidField?.center = view.bounds.mid
+    }
     
     
     // MARK: Constants
