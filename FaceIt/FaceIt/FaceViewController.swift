@@ -22,6 +22,7 @@ class FaceViewController: UIViewController {
             
             //let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(toggleEyes(byReactingTo:)))
             //tapRecognizer.numberOfTapsRequired = 1  //default value but wanted to show
+            //faceView.addGestureRecognizer(tapRecognizer)
             
             let swipeUpRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(increaseHappiness))
             swipeUpRecognizer.direction = .up
@@ -31,7 +32,6 @@ class FaceViewController: UIViewController {
             
             //add pinch & tap Recognizers to the UIView (faceView)
             faceView.addGestureRecognizer(pinchRecognizer)
-            //faceView.addGestureRecognizer(tapRecognizer)
             faceView.addGestureRecognizer(swipeUpRecognizer)
             faceView.addGestureRecognizer(swipeDownRecognizer)
             

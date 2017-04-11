@@ -42,6 +42,23 @@
  *UIView Animations - change frame, transparency, etc
  *Dynamic Animations - “Physics” based animations
  
+ Dynamic Animation (CS193p, L13, 57:50).  Also, see slides
+ Set up physics relating animatable objects & let run to stasis
+ Steps
+ Create a UIDynamicAnimator
+ Add UIDynamicBehavior
+ Add UIDynamicItem (usually UIView) to UIDynamicBehaviors
+ UIDynamicBehavior is a protocol that UIView implements
+ 
+ 
+ Avoiding memory cycles
+ In past we used “[weak self]” but we know pushBehavior will stay in heap so can’t use weak
+ [unknowned pushBehavior] - says we know pB will be in heap BUT do NOT maintain a strong reference pointer to it
+ 
+ 
+ CoreMotion - accelerometer, gyro, etc
+
+ 
  
  UIView Animations
  Done with UIView class methods that take closures
