@@ -53,6 +53,20 @@ class AsteroidsViewController: UIViewController {
         asteroidField?.center = view.bounds.mid
     }
     
+    private func repositionShip() {
+        if asteroidField != nil {
+            ship.center = asteroidField.center
+            asteroidBehavior.setBoundary(ship.shieldBoundary(in: asteroidField), named: Constants.shipBoundaryName) {[weak self] in
+                if let ship = self?.ship {
+                    ship.shieldIsActive = true
+                    Timer.scheduledTimer(withTimeInterval: Constants.Shield.duration, repeats: false){timer in
+                            ship.shieldIsActive = false
+                    }
+                }
+            }
+        }
+    }
+    
     
     // MARK: Constants
     

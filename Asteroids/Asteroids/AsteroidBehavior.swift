@@ -8,15 +8,26 @@
 
 import UIKit
 
-class AsteroidBehavior: UIDynamicBehavior
+class AsteroidBehavior: UIDynamicBehavior, UICollisionBehaviorDelegate
 {
     
     private lazy var collider: UICollisionBehavior = {
         let behavior = UICollisionBehavior()
         behavior.collisionMode = .everything
         behavior.translatesReferenceBoundsIntoBoundary = true  //sets edges of view to boundary
+        behavior.collisionDelegate = self
         return behavior
     }()
+    
+    func collisionBehavior(
+        _ behavior: UICollisionBehavior,
+        beganContactFor item: UIDynamicItem,
+        withBoundaryIdentifier identifier: NSCopying?, at p: CGPoint
+    ) {
+        if let name = identifier as? String, let handler = collisionHandlers[name] {
+            handler()
+        }
+    }
     
     private lazy var physics: UIDynamicItemBehavior = {
         let behavior = UIDynamicItemBehavior()
@@ -27,6 +38,17 @@ class AsteroidBehavior: UIDynamicBehavior
         
         return behavior
     }()
+    
+    private var collisionHandlers = [String: ()->Void]()
+    
+    func setBoundary (_ path: UIBezierPath?, named name: String, handler: (()->Void)?) {
+        collider.removeBoundary(withIdentifier: name as NSString) //remove old boundary
+        collisionHandlers[name] = nil                             //remove old handler
+        if path != nil {
+            collider.addBoundary(withIdentifier: name as NSString, for: path!)
+            collisionHandlers[name] = handler
+        }
+    }
     
     override init() {
         super.init()
