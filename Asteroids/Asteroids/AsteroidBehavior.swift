@@ -13,8 +13,8 @@ class AsteroidBehavior: UIDynamicBehavior, UICollisionBehaviorDelegate
     
     private lazy var collider: UICollisionBehavior = {
         let behavior = UICollisionBehavior()
-        behavior.collisionMode = .everything
-        behavior.translatesReferenceBoundsIntoBoundary = true  //sets edges of view to boundary
+        behavior.collisionMode = .boundaries
+        //behavior.translatesReferenceBoundsIntoBoundary = true  //sets edges of view to boundary
         behavior.collisionDelegate = self
         return behavior
     }()
@@ -39,6 +39,12 @@ class AsteroidBehavior: UIDynamicBehavior, UICollisionBehaviorDelegate
         return behavior
     }()
     
+    lazy var acceleration: UIGravityBehavior = {
+        let behavior = UIGravityBehavior()
+        behavior.magnitude = 0  //by default equals 1 in y direction (falls)
+        return behavior
+    }()
+    
     private var collisionHandlers = [String: ()->Void]()
     
     func setBoundary (_ path: UIBezierPath?, named name: String, handler: (()->Void)?) {
@@ -54,12 +60,15 @@ class AsteroidBehavior: UIDynamicBehavior, UICollisionBehaviorDelegate
         super.init()
         addChildBehavior(collider)
         addChildBehavior(physics)
+        addChildBehavior(acceleration)
     }
     
     func addAsteroid(_ asteroid: AsteroidView){
         asteroids.append(asteroid)
         collider.addItem(asteroid)
         physics.addItem(asteroid)
+        acceleration.addItem(asteroid)
+        startRecapturingWaywardAsteroids()
     }
     
     func removeAsteroid(_ asteroid: AsteroidView) {
@@ -68,6 +77,20 @@ class AsteroidBehavior: UIDynamicBehavior, UICollisionBehaviorDelegate
         }
         collider.removeItem(asteroid)
         physics.removeItem(asteroid)
+        acceleration.removeItem(asteroid)
+        if asteroids.isEmpty {
+            stopRecapturingWaywardAsteroids()
+        }
+    }
+    
+    //stop recapture timer if animator stops
+    override func willMove(to dynamicAnimator: UIDynamicAnimator?) {
+        super.willMove(to: dynamicAnimator)
+        if dynamicAnimator == nil {
+            stopRecapturingWaywardAsteroids()
+        } else if !asteroids.isEmpty {
+            startRecapturingWaywardAsteroids()
+        }
     }
     
     
@@ -81,6 +104,30 @@ class AsteroidBehavior: UIDynamicBehavior, UICollisionBehaviorDelegate
     }
     
     private var asteroids = [AsteroidView]()
+    
+    var recaptureCount = 0
+    private weak var recaptureTimer: Timer?
+    
+    private func startRecapturingWaywardAsteroids() {
+        if recaptureTimer == nil {
+            recaptureTimer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true) { [weak self] timer in
+                for asteroid in self?.asteroids ?? [] {
+                    if let asteroidFieldBounds = asteroid.superview?.bounds, !asteroidFieldBounds.contains(asteroid.center) {
+                        asteroid.center.x = asteroid.center.x.truncatingRemainder(dividingBy: asteroidFieldBounds.width)
+                        if asteroid.center.x < 0 { asteroid.center.x += asteroidFieldBounds.width }
+                        asteroid.center.y = asteroid.center.y.truncatingRemainder(dividingBy: asteroidFieldBounds.height)
+                        if asteroid.center.y < 0 { asteroid.center.y += asteroidFieldBounds.height }
+                        self?.dynamicAnimator?.updateItem(usingCurrentState: asteroid)
+                        self?.recaptureCount += 1
+                    }
+                }
+            }
+        }
+    }
+
+    private func stopRecapturingWaywardAsteroids() {
+        recaptureTimer?.invalidate()
+    }
     
    
 
