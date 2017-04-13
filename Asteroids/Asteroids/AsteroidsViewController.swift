@@ -43,6 +43,7 @@ class AsteroidsViewController: UIViewController {
             let shipSize = view.bounds.size.minEdge * Constants.shipSizeToMinBoundsEdgeRatio
             ship = SpaceshipView(frame: CGRect(squareCenteredAt:asteroidField.center, size: shipSize))
             view.addSubview(ship)
+            repositionShip()
             asteroidField.addAsteroids(count: Constants.initialAsteroidCount)
             asteroidField.asteroidBehavior = asteroidBehavior
         }
@@ -51,6 +52,7 @@ class AsteroidsViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         asteroidField?.center = view.bounds.mid
+        repositionShip()
     }
     
     private func repositionShip() {
@@ -58,9 +60,16 @@ class AsteroidsViewController: UIViewController {
             ship.center = asteroidField.center
             asteroidBehavior.setBoundary(ship.shieldBoundary(in: asteroidField), named: Constants.shipBoundaryName) {[weak self] in
                 if let ship = self?.ship {
-                    ship.shieldIsActive = true
-                    Timer.scheduledTimer(withTimeInterval: Constants.Shield.duration, repeats: false){timer in
+                    if !ship.shieldIsActive {
+                    
+                        ship.shieldIsActive = true
+                        ship.shieldLevel -= Constants.Shield.activationCost
+                        Timer.scheduledTimer(withTimeInterval: Constants.Shield.duration, repeats: false){timer in
                             ship.shieldIsActive = false
+                            if ship.shieldLevel <= 0 {
+                            ship.shieldLevel = 100
+                            }
+                        }
                     }
                 }
             }
