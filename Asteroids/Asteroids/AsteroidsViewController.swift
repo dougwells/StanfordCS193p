@@ -44,7 +44,7 @@ class AsteroidsViewController: UIViewController {
             ship = SpaceshipView(frame: CGRect(squareCenteredAt:asteroidField.center, size: shipSize))
             view.addSubview(ship)
             repositionShip()
-            asteroidField.addAsteroids(count: Constants.initialAsteroidCount)
+            asteroidField.addAsteroids(count: Constants.initialAsteroidCount, exclusionZone: ship.convert(ship.bounds, to: asteroidField))
             asteroidField.asteroidBehavior = asteroidBehavior
         }
     }
