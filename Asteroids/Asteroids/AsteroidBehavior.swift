@@ -56,11 +56,21 @@ class AsteroidBehavior: UIDynamicBehavior, UICollisionBehaviorDelegate
         }
     }
     
+    var speedLimit: CGFloat = 100.0
+    
     override init() {
         super.init()
         addChildBehavior(collider)
         addChildBehavior(physics)
         addChildBehavior(acceleration)
+        physics.action = { [weak self] in
+            for asteroid in self?.asteroids ?? [] {
+                let velocity = self!.physics.linearVelocity(for: asteroid)
+                let excessHorizontalVelocity = min(self!.speedLimit - velocity.x, 0)
+                let excessVerticalVelocity = min(self!.speedLimit - velocity.y, 0)
+                self!.physics.addLinearVelocity(CGPoint(x: excessHorizontalVelocity, y: excessVerticalVelocity), for: asteroid)
+            }
+        }
     }
     
     func addAsteroid(_ asteroid: AsteroidView){
@@ -98,7 +108,7 @@ class AsteroidBehavior: UIDynamicBehavior, UICollisionBehaviorDelegate
         for asteroid in asteroids {
             let pusher = UIPushBehavior(items: [asteroid], mode: .instantaneous)
             pusher.magnitude = CGFloat.random(in: magnitude)
-            pusher.angle = CGFloat.random(in: 0..<2*CGFloat.pi)
+            pusher.angle = CGFloat.random(in: 0..<CGFloat.pi*2)
             addChildBehavior(pusher)
         }
     }
