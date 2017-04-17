@@ -105,14 +105,15 @@ class FaceViewController: UIViewController {
     
 
     
-    private func updateUI() {
+    func updateUI() {
         switch expression.eyes {
         case .open:
             faceView?.eyesOpen = true   //optional in case faceView not set yet (L5 12:50)
         case .closed:
             faceView?.eyesOpen = false
         case .squinting:
-            faceView?.eyesOpen = false
+            //faceView?.eyesOpen = false
+            break
         }
         
         faceView?.mouthCurvature = mouthCurvaturesDict[expression.mouth] ?? 0.0
