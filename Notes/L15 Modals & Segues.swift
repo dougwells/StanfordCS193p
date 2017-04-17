@@ -14,5 +14,16 @@
  “Presenter of the modal, must have an @IBAction method
  that @IBAction method can only have one argument which is UIStoryboardSegue
 
+ popover modal
+ trigger using same approach as any modal
+ UIPopoverPresentationController
+ Notes what triggered the popover
+ “little” triangle points to rectangle (bar item, text, etc) that triggered it.
+ 
+ 
+ Embed Segues
+ Putting a VC’s self.view inside another VC’s view hierarchy
+ Drag out a Container View from object palette in scene you want it in.
+
  
 */
