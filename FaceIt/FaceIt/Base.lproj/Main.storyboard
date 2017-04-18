@@ -133,11 +133,80 @@
                             <outlet property="delegate" destination="d2f-CD-od3" id="wA6-1G-Brk"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Emotions" id="A0F-Rr-hC5"/>
+                    <navigationItem key="navigationItem" title="Emotions" id="A0F-Rr-hC5">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Jdf-h6-fMc">
+                            <connections>
+                                <segue destination="Dh8-aH-5eu" kind="presentation" id="dre-62-w2D"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gQ7-rb-Qxs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="390" y="-460"/>
+        </scene>
+        <!--Expression Editor Table View Controller-->
+        <scene sceneID="kbb-hL-7Cy">
+            <objects>
+                <tableViewController id="JYW-nW-luX" customClass="ExpressionEditorTableViewController" customModule="FaceIt" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="dlL-cu-Vgn">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <sections>
+                            <tableViewSection id="O47-vS-ILH">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Q2o-S0-0Jv">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Q2o-S0-0Jv" id="kXb-WC-Rvp">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="4Yo-S8-Aox">
+                                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4Yo-S8-Aox" id="2RT-em-CkR">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="ST6-cs-vZk">
+                                        <rect key="frame" x="0.0" y="88" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ST6-cs-vZk" id="6ya-D9-pAW">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="jPU-xn-x7v">
+                                        <rect key="frame" x="0.0" y="132" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jPU-xn-x7v" id="jik-RA-Jrl">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="JYW-nW-luX" id="o2m-VA-dVL"/>
+                            <outlet property="delegate" destination="JYW-nW-luX" id="2GQ-vd-f5v"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="Gz8-n0-fLb">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="S3H-Ix-Crl">
+                            <connections>
+                                <action selector="cancel:" destination="JYW-nW-luX" id="LXE-mA-OUL"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qqq-Km-ek3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2079.1999999999998" y="-460.11994002998506"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="cDs-K2-Da2">
@@ -156,6 +225,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uQp-yX-rJd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-335.19999999999999" y="279.31034482758622"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Soa-is-qIV">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Dh8-aH-5eu" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="9Re-vp-XtQ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="JYW-nW-luX" kind="relationship" relationship="rootViewController" id="LED-LD-iCR"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5fs-Lq-Noy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1140" y="-460.11994002998506"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

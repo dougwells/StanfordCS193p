@@ -15,6 +15,7 @@
 		706130391E7EEF2F00B9A186 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 706130371E7EEF2F00B9A186 /* LaunchScreen.storyboard */; };
 		706130461E7EF14700B9A186 /* FaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706130451E7EF14700B9A186 /* FaceView.swift */; };
 		7063639A1E85D05000D8BD5A /* EmotionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706363991E85D05000D8BD5A /* EmotionsViewController.swift */; };
+		7065CAD61EA6587B0076A098 /* ExpressionEditorTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7065CAD51EA6587B0076A098 /* ExpressionEditorTableViewController.swift */; };
 		708686051E9BF76C007E4F05 /* BlinkingFaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708686041E9BF76C007E4F05 /* BlinkingFaceViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -29,6 +30,7 @@
 		7061303A1E7EEF2F00B9A186 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		706130451E7EF14700B9A186 /* FaceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FaceView.swift; sourceTree = "<group>"; };
 		706363991E85D05000D8BD5A /* EmotionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmotionsViewController.swift; sourceTree = "<group>"; };
+		7065CAD51EA6587B0076A098 /* ExpressionEditorTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpressionEditorTableViewController.swift; sourceTree = "<group>"; };
 		708686041E9BF76C007E4F05 /* BlinkingFaceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlinkingFaceViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -67,6 +69,7 @@
 				708686041E9BF76C007E4F05 /* BlinkingFaceViewController.swift */,
 				706130451E7EF14700B9A186 /* FaceView.swift */,
 				706130321E7EEF2F00B9A186 /* Main.storyboard */,
+				7065CAD51EA6587B0076A098 /* ExpressionEditorTableViewController.swift */,
 				706363991E85D05000D8BD5A /* EmotionsViewController.swift */,
 				7057EE6C1E8190B1005D2E9F /* ModelFacialExpression.swift */,
 			);
@@ -158,6 +161,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				706130311E7EEF2F00B9A186 /* FaceViewController.swift in Sources */,
+				7065CAD61EA6587B0076A098 /* ExpressionEditorTableViewController.swift in Sources */,
 				7061302F1E7EEF2F00B9A186 /* AppDelegate.swift in Sources */,
 				708686051E9BF76C007E4F05 /* BlinkingFaceViewController.swift in Sources */,
 				7063639A1E85D05000D8BD5A /* EmotionsViewController.swift in Sources */,
