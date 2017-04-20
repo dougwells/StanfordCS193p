@@ -37,7 +37,7 @@
                                         <real key="value" value="0.69999999999999996"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="color">
-                                        <color key="value" red="0.99346250300000005" green="0.87501651049999996" blue="0.39278319480000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="value" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="eyesOpen" value="YES"/>
                                 </userDefinedRuntimeAttributes>
@@ -184,7 +184,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="130"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5N2-2B-UFt">
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5N2-2B-UFt" customClass="FaceView" customModule="FaceIt">
                                                     <rect key="frame" x="8" y="0.0" width="359" height="130"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </view>
@@ -204,9 +204,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="hQo-eD-CUv">
+                                                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="hQo-eD-CUv">
                                                     <rect key="frame" x="53" y="8" width="269" height="29"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <segments>
                                                         <segment title="Eyes Open"/>
                                                         <segment title="Eyes Closed"/>
@@ -214,6 +213,12 @@
                                                     </segments>
                                                 </segmentedControl>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="hQo-eD-CUv" secondAttribute="trailing" id="H96-P4-aEp"/>
+                                                <constraint firstItem="hQo-eD-CUv" firstAttribute="centerY" secondItem="6ya-D9-pAW" secondAttribute="centerY" id="Kt9-zL-sAF"/>
+                                                <constraint firstItem="hQo-eD-CUv" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6ya-D9-pAW" secondAttribute="leadingMargin" id="j1D-eR-dzm"/>
+                                                <constraint firstItem="hQo-eD-CUv" firstAttribute="centerX" secondItem="6ya-D9-pAW" secondAttribute="centerX" id="y6s-Yn-1ap"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="jPU-xn-x7v">
@@ -223,9 +228,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="muy-Lj-dK9">
-                                                    <rect key="frame" x="8" y="8" width="359" height="29"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="muy-Lj-dK9">
+                                                    <rect key="frame" x="38" y="8" width="299" height="29"/>
                                                     <segments>
                                                         <segment title="Frown"/>
                                                         <segment title="Smirk"/>
@@ -235,6 +239,12 @@
                                                     </segments>
                                                 </segmentedControl>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="muy-Lj-dK9" secondAttribute="trailing" id="90c-eE-Fav"/>
+                                                <constraint firstItem="muy-Lj-dK9" firstAttribute="centerY" secondItem="jik-RA-Jrl" secondAttribute="centerY" id="NUK-QR-5gn"/>
+                                                <constraint firstItem="muy-Lj-dK9" firstAttribute="centerX" secondItem="jik-RA-Jrl" secondAttribute="centerX" id="Ufm-Ad-BZX"/>
+                                                <constraint firstItem="muy-Lj-dK9" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="jik-RA-Jrl" secondAttribute="leadingMargin" id="sAD-bo-AYD"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </cells>
