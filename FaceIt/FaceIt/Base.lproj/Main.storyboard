@@ -150,7 +150,7 @@
         <scene sceneID="kbb-hL-7Cy">
             <objects>
                 <tableViewController id="JYW-nW-luX" customClass="ExpressionEditorTableViewController" customModule="FaceIt" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="dlL-cu-Vgn">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="dlL-cu-Vgn">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -169,6 +169,9 @@
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="JYW-nW-luX" id="ScX-Wr-bPh"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -211,6 +214,9 @@
                                                         <segment title="Eyes Closed"/>
                                                         <segment title="Squinting"/>
                                                     </segments>
+                                                    <connections>
+                                                        <action selector="updateFace" destination="JYW-nW-luX" eventType="valueChanged" id="1rF-qP-Vxb"/>
+                                                    </connections>
                                                 </segmentedControl>
                                             </subviews>
                                             <constraints>
@@ -237,6 +243,9 @@
                                                         <segment title="Grin"/>
                                                         <segment title="Smile"/>
                                                     </segments>
+                                                    <connections>
+                                                        <action selector="updateFace" destination="JYW-nW-luX" eventType="valueChanged" id="3ss-h2-iyv"/>
+                                                    </connections>
                                                 </segmentedControl>
                                             </subviews>
                                             <constraints>
@@ -262,10 +271,15 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="eyeControl" destination="hQo-eD-CUv" id="pj7-1X-Say"/>
+                        <outlet property="mouthControl" destination="muy-Lj-dK9" id="ivS-gg-2Q5"/>
+                        <outlet property="nameTextField" destination="mWd-04-fwp" id="9ZE-7d-FiQ"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qqq-Km-ek3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2079.1999999999998" y="-460.11994002998506"/>
+            <point key="canvasLocation" x="1977" y="-459"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="cDs-K2-Da2">
