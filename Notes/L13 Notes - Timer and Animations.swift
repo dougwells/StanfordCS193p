@@ -8,6 +8,24 @@
 
 /*
  
+ --- Segment Controller ---
+ in storyboard:  
+ Bar with multiple options user highlights
+ FaceIt.  (Grin, Smirk, Frown, Etc)
+ 
+ code in controller:
+ private let eyeChoices = [FacialExpression.Eyes.open, .closed, .squinting]
+ 
+ private let mouthChoices = [FacialExpression.Mouth.frown, .smirk, .nuetral, .grin, .smile]
+ 
+ 
+ var expression: FacialExpression {
+ return FacialExpression(
+ eyes: eyeChoices[eyeControl?.selectedSegmentIndex ?? 0],
+ mouth: mouthChoices[mouthControl?.selectedSegmentIndex ?? 0])
+ }
+
+ 
  --- Timer() ---
  CS193p notes
  method
