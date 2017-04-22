@@ -187,16 +187,18 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="130"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5N2-2B-UFt" customClass="FaceView" customModule="FaceIt">
+                                                <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vgl-nk-qAt">
                                                     <rect key="frame" x="8" y="0.0" width="359" height="130"/>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                </view>
+                                                    <connections>
+                                                        <segue destination="CvB-kM-XS7" kind="embed" id="DPT-ld-T0b"/>
+                                                    </connections>
+                                                </containerView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="5N2-2B-UFt" firstAttribute="trailing" secondItem="2RT-em-CkR" secondAttribute="trailingMargin" id="NIK-N9-uOv"/>
-                                                <constraint firstItem="5N2-2B-UFt" firstAttribute="centerY" secondItem="2RT-em-CkR" secondAttribute="centerY" id="Rq6-Za-wjS"/>
-                                                <constraint firstItem="5N2-2B-UFt" firstAttribute="leading" secondItem="2RT-em-CkR" secondAttribute="leadingMargin" id="SdU-Db-VA2"/>
-                                                <constraint firstItem="5N2-2B-UFt" firstAttribute="top" secondItem="2RT-em-CkR" secondAttribute="top" id="ytC-Cw-TGo"/>
+                                                <constraint firstItem="vgl-nk-qAt" firstAttribute="centerY" secondItem="2RT-em-CkR" secondAttribute="centerY" id="Iwh-PB-PxK"/>
+                                                <constraint firstItem="vgl-nk-qAt" firstAttribute="top" secondItem="2RT-em-CkR" secondAttribute="top" id="Kfr-8X-iOp"/>
+                                                <constraint firstItem="vgl-nk-qAt" firstAttribute="trailing" secondItem="2RT-em-CkR" secondAttribute="trailingMargin" id="UI9-tZ-abd"/>
+                                                <constraint firstItem="vgl-nk-qAt" firstAttribute="leading" secondItem="2RT-em-CkR" secondAttribute="leadingMargin" id="nBC-Fi-APf"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -279,7 +281,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qqq-Km-ek3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1977" y="-459"/>
+            <point key="canvasLocation" x="1976.8" y="-459.22038980509751"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="cDs-K2-Da2">
@@ -316,6 +318,46 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5fs-Lq-Noy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1140" y="-460.11994002998506"/>
+        </scene>
+        <!--Blinking Face View Controller-->
+        <scene sceneID="T0F-y7-HB2">
+            <objects>
+                <viewController id="CvB-kM-XS7" customClass="BlinkingFaceViewController" customModule="FaceIt" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="9xH-Uf-Skj">
+                        <rect key="frame" x="0.0" y="0.0" width="359" height="130"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PRY-Ki-fOa" customClass="FaceView" customModule="FaceIt" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="2" width="359" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <gestureRecognizers/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="scale">
+                                        <real key="value" value="0.90000000000000002"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="lineWidth">
+                                        <real key="value" value="4"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="mouthCurvature">
+                                        <real key="value" value="0.69999999999999996"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="color">
+                                        <color key="value" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="eyesOpen" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="faceView" destination="PRY-Ki-fOa" id="rzU-Px-Ct7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GRH-w2-UEZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2765.5999999999999" y="-461.46926536731638"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
