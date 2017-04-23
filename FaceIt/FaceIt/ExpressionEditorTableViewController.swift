@@ -44,6 +44,15 @@ class ExpressionEditorTableViewController: UITableViewController, UITextFieldDel
         }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(false)
+        if let popoverPresentationController = navigationController?.popoverPresentationController {
+            if popoverPresentationController.arrowDirection != .unknown {
+                navigationItem.leftBarButtonItem = nil
+            }
+        }
+    }
+    
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.row == 1 {

@@ -137,7 +137,9 @@
                     <navigationItem key="navigationItem" title="Emotions" id="A0F-Rr-hC5">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Jdf-h6-fMc">
                             <connections>
-                                <segue destination="Dh8-aH-5eu" kind="presentation" id="dre-62-w2D"/>
+                                <segue destination="Dh8-aH-5eu" kind="popoverPresentation" popoverAnchorBarButtonItem="Jdf-h6-fMc" id="dre-62-w2D">
+                                    <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                </segue>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
