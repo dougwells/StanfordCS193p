@@ -25,6 +25,7 @@ class BlinkingFaceViewController: FaceViewController
     }
     private var canBlink = false
     private var inABlink = false
+    
     private func blinkIfNeeded() {
         if blinking && canBlink && !inABlink {
             faceView.eyesOpen = false
