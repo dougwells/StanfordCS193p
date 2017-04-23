@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EmotionsViewController: UITableViewController {
+class EmotionsViewController: UITableViewController, UIPopoverPresentationControllerDelegate {
     
     //MARK:  Model
     private var emotionalFaces: [(name: String, expression: FacialExpression)] =
@@ -56,11 +56,28 @@ class EmotionsViewController: UITableViewController {
                 faceViewController.expression = emotionalFaces[indexPath.row].expression
             
                 faceViewController.navigationItem.title = emotionalFaces[indexPath.row].name
+        } else if destinationViewController is ExpressionEditorTableViewController {
+            if let popoverPresentationController = segue.destination.popoverPresentationController {
+                    popoverPresentationController.delegate = self
+            }
+            
         }
         
     } // end prepare(for seque:)
     
-    
+    func adaptivePresentationStyle(
+        for controller: UIPresentationController,
+        traitCollection: UITraitCollection
+        )
+        -> UIModalPresentationStyle {
+            if traitCollection.verticalSizeClass == .compact {
+                return .none
+            } else if traitCollection.horizontalSizeClass == .compact {
+                    return .overFullScreen
+            } else {
+                return .none
+            }
+    }
 
     
 }
