@@ -51,6 +51,11 @@ class ExpressionEditorTableViewController: UITableViewController, UITextFieldDel
                 navigationItem.leftBarButtonItem = nil
             }
         }
+        
+        var size = tableView.minimumSize(forSection: 0)
+        size.height -= tableView.heightForRow(at: IndexPath(row: 1, section: 0))
+        size.height += size.width   //make the tableView a square
+        preferredContentSize = size
     }
     
     
@@ -71,4 +76,28 @@ class ExpressionEditorTableViewController: UITableViewController, UITextFieldDel
         presentingViewController?.dismiss(animated: true)
     }
     
+}
+
+extension UITableView
+{
+    func minimumSize(forSection section: Int) -> CGSize {
+        var width: CGFloat = 0
+        var height : CGFloat = 0
+        for row in 0..<numberOfRows(inSection: section) {
+            let indexPath = IndexPath(row: row, section: section)
+            if let cell = cellForRow(at: indexPath) ?? dataSource?.tableView(self, cellForRowAt: indexPath) {
+                let cellSize = cell.contentView.systemLayoutSizeFitting(UILayoutFittingCompressedSize)
+                width = max(width, cellSize.width)
+                height += heightForRow(at: indexPath)
+            }
+        }
+        return CGSize(width: width, height: height)
+    }
+    func heightForRow(at indexPath: IndexPath? = nil) -> CGFloat {
+        if indexPath != nil, let height = delegate?.tableView?(self, heightForRowAt: indexPath!) {
+            return height
+        } else {
+            return rowHeight
+        }
+    }
 }
