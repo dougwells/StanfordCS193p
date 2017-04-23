@@ -195,10 +195,10 @@
                                                 </containerView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="vgl-nk-qAt" firstAttribute="centerY" secondItem="2RT-em-CkR" secondAttribute="centerY" id="Iwh-PB-PxK"/>
-                                                <constraint firstItem="vgl-nk-qAt" firstAttribute="top" secondItem="2RT-em-CkR" secondAttribute="top" id="Kfr-8X-iOp"/>
-                                                <constraint firstItem="vgl-nk-qAt" firstAttribute="trailing" secondItem="2RT-em-CkR" secondAttribute="trailingMargin" id="UI9-tZ-abd"/>
-                                                <constraint firstItem="vgl-nk-qAt" firstAttribute="leading" secondItem="2RT-em-CkR" secondAttribute="leadingMargin" id="nBC-Fi-APf"/>
+                                                <constraint firstItem="vgl-nk-qAt" firstAttribute="leading" secondItem="2RT-em-CkR" secondAttribute="leadingMargin" id="8i2-2Z-gBs"/>
+                                                <constraint firstItem="vgl-nk-qAt" firstAttribute="top" secondItem="2RT-em-CkR" secondAttribute="top" id="eJU-KZ-9si"/>
+                                                <constraint firstItem="vgl-nk-qAt" firstAttribute="centerY" secondItem="2RT-em-CkR" secondAttribute="centerY" id="hZ1-Pp-Pky"/>
+                                                <constraint firstItem="vgl-nk-qAt" firstAttribute="trailing" secondItem="2RT-em-CkR" secondAttribute="trailingMargin" id="vIe-I6-e0i"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -327,9 +327,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="359" height="130"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PRY-Ki-fOa" customClass="FaceView" customModule="FaceIt" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="2" width="359" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <view contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="PRY-Ki-fOa" customClass="FaceView" customModule="FaceIt" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="359" height="130"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <gestureRecognizers/>
                                 <userDefinedRuntimeAttributes>
@@ -350,6 +349,12 @@
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="PRY-Ki-fOa" firstAttribute="leading" secondItem="9xH-Uf-Skj" secondAttribute="leading" id="M8D-bz-fFr"/>
+                            <constraint firstItem="PRY-Ki-fOa" firstAttribute="top" secondItem="9xH-Uf-Skj" secondAttribute="topMargin" id="QGx-kT-0qn"/>
+                            <constraint firstAttribute="trailing" secondItem="PRY-Ki-fOa" secondAttribute="trailing" id="R4e-TZ-Fad"/>
+                            <constraint firstAttribute="bottom" secondItem="PRY-Ki-fOa" secondAttribute="bottom" id="yDd-M1-LsI"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="faceView" destination="PRY-Ki-fOa" id="rzU-Px-Ct7"/>
