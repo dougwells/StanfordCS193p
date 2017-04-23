@@ -190,7 +190,7 @@
                                                 <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vgl-nk-qAt">
                                                     <rect key="frame" x="8" y="0.0" width="359" height="130"/>
                                                     <connections>
-                                                        <segue destination="CvB-kM-XS7" kind="embed" id="DPT-ld-T0b"/>
+                                                        <segue destination="CvB-kM-XS7" kind="embed" identifier="Embed Face" id="DPT-ld-T0b"/>
                                                     </connections>
                                                 </containerView>
                                             </subviews>

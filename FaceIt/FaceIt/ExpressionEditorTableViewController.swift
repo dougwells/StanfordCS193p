@@ -22,11 +22,11 @@ class ExpressionEditorTableViewController: UITableViewController, UITextFieldDel
     var expression: FacialExpression {
         return FacialExpression(
             eyes: eyeChoices[eyeControl?.selectedSegmentIndex ?? 0],
-            mouth: mouthChoices[mouthControl?.selectedSegmentIndex ?? 0])
+            mouth: mouthChoices[mouthControl?.selectedSegmentIndex ?? 4])
     }
     
     @IBAction func updateFace() {
-        print("name = \(expression)")
+        faceViewController?.expression = expression
     }
 
     
@@ -34,6 +34,15 @@ class ExpressionEditorTableViewController: UITableViewController, UITextFieldDel
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var eyeControl: UISegmentedControl!
     @IBOutlet weak var mouthControl: UISegmentedControl!
+    
+    private var faceViewController: BlinkingFaceViewController?
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "Embed Face" {
+            faceViewController = segue.destination as? BlinkingFaceViewController
+            faceViewController?.expression = expression
+        }
+    }
     
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
