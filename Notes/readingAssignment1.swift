@@ -215,7 +215,16 @@
  Contains.
  To check whether a string has a particular string prefix or suffix, call the string’s hasPrefix(_:) and hasSuffix(_:) methods, both of which take a single argument of type String and return a Boolean value.
  
+ === Structs & Enums ===
  
+ Stuctures & Enums are value typed (make copy)
+ Unlike classes, If you create an instance of a structure and assign that instance to a constant, you cannot modify the instance’s properties, even if the properties were declared as variable properties:
+ 
+ let rangeOfFourItems = FixedLengthRange(firstValue: 0, length: 4)
+ // this range represents integer values 0, 1, 2, and 3
+ rangeOfFourItems.firstValue = 6
+ // this will report an error, even though firstValue is a variable property
+
 
  
 */
