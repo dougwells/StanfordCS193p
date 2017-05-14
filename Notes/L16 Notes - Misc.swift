@@ -8,9 +8,21 @@
  Action Sheets - slide up from bottom.  Usually 2+ questions.  Branching decisions.  What next?
  
  var alert = UIAlertController(
-    title = "Redeploy Cassini"
-    message = "Issue commands to redeploy"
+    title = "Redeploy Cassini",
+    message = "Issue commands to redeploy",
     preferredStyle = .actionSheet  //or .alert
+ )
+ 
+ alert.addAction(
+        UIAlertAction(
+            title: "Orbit Saturn",
+            style: UIAlertActionStyle.default)
+        )
+        { (action: UIAlertActionStyle) -> Void in 
+            //go into orbit around Saturn
+        }
+ 
+ 
  )
  
 */
