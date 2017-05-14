@@ -7,6 +7,12 @@
  
  Action Sheets - slide up from bottom.  Usually 2+ questions.  Branching decisions.  What next?
  
+ var alert = UIAlertController(
+    title = "Redeploy Cassini"
+    message = "Issue commands to redeploy"
+    preferredStyle = .actionSheet  //or .alert
+ )
+ 
 */
 
 
