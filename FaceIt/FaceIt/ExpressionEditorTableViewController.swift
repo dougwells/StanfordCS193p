@@ -43,6 +43,22 @@ class ExpressionEditorTableViewController: UITableViewController, UITextFieldDel
             faceViewController?.expression = expression
         }
     }
+
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        if identifier == "Add Emotion", name.isEmpty {
+            handleUnnamedFace()
+            return false
+        } else {
+            return super.shouldPerformSegue(withIdentifier: identifier, sender: sender)
+        }
+    }
+    
+    private func handleUnnamedFace(){
+        let alert = UIAlertController(title: "Invalid Face", message: "Please enter a name for this face", preferredStyle: .alert)
+        present(alert, animated: true)
+        alert.addAction(UIAlertAction(title:"OK", style: .default, handler: nil))
+    }
+    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(false)
