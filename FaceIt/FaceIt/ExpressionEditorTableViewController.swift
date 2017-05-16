@@ -55,8 +55,12 @@ class ExpressionEditorTableViewController: UITableViewController, UITextFieldDel
     
     private func handleUnnamedFace(){
         let alert = UIAlertController(title: "Invalid Face", message: "Please enter a name for this face", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title:"OK", style: .default, handler: { action in
+            self.nameTextField?.text = alert.textFields?.first?.text
+            self.performSegue(withIdentifier: "Add Emotion", sender: nil)
+        }))
+        alert.addTextField(configurationHandler: nil)
         present(alert, animated: true)
-        alert.addAction(UIAlertAction(title:"OK", style: .default, handler: nil))
     }
     
     
