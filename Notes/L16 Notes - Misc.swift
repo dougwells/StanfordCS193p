@@ -25,6 +25,17 @@
  
  )
  
+ Notifications (professor calls this a "radio station")
+ 
+ let center = NotificationCenter.default
+ var observer = center.addObserver(
+    forName: NSNotification.Name.UIContentSizeCategoryDidChange
+    object: UIApplication.shared
+    queue: OperationQue.main
+ )
+ 
+ center.removeObserver(observer)  //when done listening
+ 
 */
 
 
