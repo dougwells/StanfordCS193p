@@ -60,6 +60,20 @@
         func applicationDidBecomeActive(UIApplication)
         func applicationDidEnterBackground(UIApplication)
         func applicationWillEnterForeground(UIApplication)
+ 
+ Capabilities - "update app's entitlements so it can do something
+    * iCloud
+    * ApplePay
+    * Keychain
+    * Etc.
+ 
+ Persistance
+    * UserDefaults - only for little stuff
+    * CoreData
+    * Archiving - rarely used
+    * SQLite - also rarely used
+    * File System - iOS has Unix filesystem underneath it.  Can read/write to it (with some restrictions)
+ 
 
  
 */
