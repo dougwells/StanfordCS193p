@@ -37,5 +37,12 @@ import Foundation
                 return true
             }
  
+    Developer needs to review code/app to ensure flow makes sense to sight
+    impaired user (example of trash & refresh icons not properly labeled.
+        titleLabel.accessibilityTraits != UIAccessibilityTraitHeader
+        shuffleButton.accessibilityLabel = "Shuffle"
+        deleteButton.accessibilityLabel = "Delete"
+ 
+ 
  
 */
