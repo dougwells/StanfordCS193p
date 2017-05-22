@@ -11,7 +11,9 @@ import Foundation
 /*
  Guest lecturer from Apple's accessibility team
  
- UIAccessibility Protocol
+A) UIAccessibility Protocol
+ 
+ 1) Accessibility Traits Protocol
     5 Main Accessibility Traits
         isAccessibilityElement: Bool
         accessibilityLabel: String?
@@ -43,6 +45,28 @@ import Foundation
         shuffleButton.accessibilityLabel = "Shuffle"
         deleteButton.accessibilityLabel = "Delete"
  
+ 2) Accessibility Container Protocol
+    UIAccessibilityElement(accessibilityContainer: self)
  
+B) Color (for color blind users) - Uses color AND shape to convey meaning
+C) Motion
+D) Dynamic Type (user can make font larger)
+    class func preferredFont(forTextStyle style: UIFontTextStyle) -> UIFont 
+        8 distinct styles you can pass this method:
+            Title1, Title2, Title3
+            Headline, Body
+            Callout, Subhead, Footnote
+            Caption1, Caption2
+ 
+        let label: UILabel
+        required init?(coder aDecoder: NSCoder) {
+            label = UILabel()
+            label.numberOfLines = 0 //expand to whatever # of lines needed
+            label.adjustsFontForContentSizeCategory = true
+            label.font = UIFont.preferedFont(forTextStyle: .body)
+        
+            super.init(coder: aDecoder)
+            addSubView(label)
+        }
  
 */
