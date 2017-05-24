@@ -69,4 +69,12 @@ D) Dynamic Type (user can make font larger)
             addSubView(label)
         }
  
+ 3) Accessibility Inspector
+ - Powerful tool to help understand how your app is functioning for accessibility.
+ - See WWDC videos for more info
+ 
+4) Final Thoughts:
+ - Easier to get app featured by Apple if have accessibility features
+ 
+ 
 */
